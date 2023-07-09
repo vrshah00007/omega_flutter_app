@@ -6,6 +6,8 @@ import 'package:omega_flutter_app/utils/color_const.dart';
 import 'package:omega_flutter_app/utils/custom_textform_filed.dart';
 import 'package:omega_flutter_app/utils/custom_widgets/custom_button.dart';
 
+import '../../create_account_screen/view/create_account_screen.dart';
+
 class SignUpWidget extends StatelessWidget {
   SignUpWidget({Key? key}) : super(key: key);
   final signUpController = Get.put(SignUpController());
@@ -20,6 +22,7 @@ class SignUpWidget extends StatelessWidget {
           CustomTextFormField(
             hintText: "First Name",
             isPassword: false,
+            borderRadius: 16,
           ),
           const SizedBox(
             height: 16,
@@ -27,6 +30,7 @@ class SignUpWidget extends StatelessWidget {
           CustomTextFormField(
             hintText: "Last Name",
             isPassword: false,
+            borderRadius: 16,
           ),
           const SizedBox(
             height: 16,
@@ -34,6 +38,7 @@ class SignUpWidget extends StatelessWidget {
           CustomTextFormField(
             hintText: "Email",
             isPassword: false,
+            borderRadius: 16,
           ),
           const SizedBox(
             height: 16,
@@ -41,6 +46,7 @@ class SignUpWidget extends StatelessWidget {
           CustomTextFormField(
             hintText: "Password",
             isPassword: true,
+            borderRadius: 16,
           ),
           const SizedBox(
             height: 16,
@@ -96,7 +102,9 @@ class SignUpWidget extends StatelessWidget {
               title: "SIGN UP",
               color: yellowButtonColor,
               textColor: Colors.black,
-              clickCallback: () {},
+              clickCallback: () {
+                Get.to(() => CreateAccountScreen());
+              },
             ),
           )
         ],

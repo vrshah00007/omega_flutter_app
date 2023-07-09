@@ -19,13 +19,14 @@ class CustomButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: clickCallback,
       style: ButtonStyle(
-        elevation: MaterialStatePropertyAll(0),
+          elevation: MaterialStatePropertyAll(0),
           backgroundColor: MaterialStatePropertyAll(color),
           shape: MaterialStatePropertyAll(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)))),
       child: Text(
         title,
-        style: TextStyle(color: textColor),
+        style: TextStyle(
+            color: textColor, fontSize: 16, fontWeight: FontWeight.w500),
       ),
     );
   }

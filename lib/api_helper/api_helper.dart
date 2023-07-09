@@ -1,20 +1,14 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'api_exception.dart';
 
-const String baseUrl = "https://bookink.vrinsoft.in/";
-// const String baseUrl =
-//     "http://ec2-18-60-131-247.ap-south-2.compute.amazonaws.com/";
+const String baseUrl = "";
 
 class ApiBaseHelper {
-  // final String _baseUrl = "https://bookink.vrinsoft.in/";
-  final String _baseSocketUrl = "https://bookink.vrinsoft.in/";
-
   Future<dynamic> get(String url, {bool? isSocket}) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     // String token = LocalStorageRepository(prefs).getValue(KEY_USER_TOKEN);
@@ -45,7 +39,7 @@ class ApiBaseHelper {
     var responseJson;
     try {
       final response = await http.post(
-        Uri.parse((isSocketUrl != null ? _baseSocketUrl : baseUrl) + url),
+        Uri.parse("${isSocketUrl}$url"),
         body: requestBody,
         headers: (tokenNotRequired != null && tokenNotRequired)
             ? null

@@ -23,11 +23,11 @@ class LoginWidget extends StatelessWidget {
           const SizedBox(
             height: 16,
           ),
-          CustomTextFormField(hintText: "Email address"),
+          CustomTextFormField(hintText: "Email address",borderRadius: 16),
           const SizedBox(
             height: 16,
           ),
-          CustomTextFormField(hintText: "Password", isPassword: true),
+          CustomTextFormField(hintText: "Password", isPassword: true, borderRadius: 16,),
           SizedBox(
             height: 16,
           ),
