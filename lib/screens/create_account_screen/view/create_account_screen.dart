@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:omega_flutter_app/screens/dashboard/view/dashboard.dart';
 import 'package:omega_flutter_app/utils/color_const.dart';
 import 'package:omega_flutter_app/utils/custom_textform_filed.dart';
 import 'package:omega_flutter_app/utils/custom_widgets/custom_button.dart';
+
+import '../../dashboard/controller/dashboard_binding.dart';
 
 class CreateAccountScreen extends StatelessWidget {
   const CreateAccountScreen({Key? key}) : super(key: key);
@@ -143,7 +146,12 @@ class CreateAccountScreen extends StatelessWidget {
             child: CustomButton(
                 title: "Sign Up",
                 color: blackButtonColor,
-                clickCallback: () {},
+                clickCallback: () {
+                  Get.to(
+                    () => Dashboard(),
+                    binding: DashboardBinding(),
+                  );
+                },
                 textColor: Colors.white),
           ),
           const SizedBox(
