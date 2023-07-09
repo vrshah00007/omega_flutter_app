@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:omega_flutter_app/screens/sign_in_screen/view/sign_in_screen.dart';
 
 import '../../../utils/color_const.dart';
 import '../../../utils/custom_widgets/custom_button.dart';
@@ -27,13 +28,18 @@ class GetStartedScreen extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 14,
                 )),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             SizedBox(
               width: Get.width,
               height: 48,
               child: CustomButton(
+                clickCallback: () {
+                  Get.to(
+                    () => const SignInScreen(),
+                  );
+                },
                 title: 'LET’S GET STARTED',
                 textColor: Colors.black,
                 color: yellowButtonColor,
