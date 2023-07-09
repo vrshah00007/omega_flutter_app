@@ -136,7 +136,7 @@ class CreateAccountScreen extends StatelessWidget {
             title: "Confirm Password",
           ),
           const SizedBox(
-            height: 12,
+            height: 16,
           ),
           SizedBox(
             height: 48,

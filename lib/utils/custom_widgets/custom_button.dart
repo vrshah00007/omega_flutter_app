@@ -22,7 +22,7 @@ class CustomButton extends StatelessWidget {
           elevation: MaterialStatePropertyAll(0),
           backgroundColor: MaterialStatePropertyAll(color),
           shape: MaterialStatePropertyAll(
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)))),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)))),
       child: Text(
         title,
         style: TextStyle(
