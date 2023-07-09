@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:omega_flutter_app/screens/sign_in_screen/view/sign_up_widget.dart';
 import 'package:omega_flutter_app/utils/color_const.dart';
 
@@ -15,7 +16,9 @@ class SignInScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           leading: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Get.back();
+              },
               icon: Icon(
                 Icons.arrow_back,
                 color: blueColor,

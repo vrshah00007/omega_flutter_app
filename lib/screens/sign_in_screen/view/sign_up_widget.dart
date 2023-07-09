@@ -88,6 +88,9 @@ class SignUpWidget extends StatelessWidget {
             ],
           ),
           SizedBox(
+            height: 16,
+          ),
+          SizedBox(
             height: 54,
             child: CustomButton(
               title: "SIGN UP",
