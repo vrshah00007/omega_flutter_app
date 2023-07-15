@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:omega_flutter_app/routes/routes_name.dart';
+import 'package:omega_flutter_app/screens/dashboard/controller/dashboard_controller.dart';
+import 'package:omega_flutter_app/screens/dashboard/view/dashboard.dart';
 
 import 'screens/splash/binding/splash_binding.dart';
 import 'screens/splash/view/splash.dart';
@@ -15,16 +17,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Omega',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-        fontFamily: "galano-grotesque-alt-cufonfonts",
+    return GestureDetector(
+      onTap: () {},
+      child: GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Omega',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+          fontFamily: "galano-grotesque-alt-cufonfonts",
+        ),
+        initialBinding: SplashBinding(),
+        home: SplashScreen(),
       ),
-      initialBinding: SplashBinding(),
-      home: SplashScreen(),
     );
   }
 }

@@ -16,9 +16,11 @@ class GetStartedScreen extends StatelessWidget {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 25),
+              padding: const EdgeInsets.only(top: 100),
               child: Image.asset(
                 "assets/splash/get_started.png",
+                height: Get.height*0.46,
+                // width: Get.width/2,
                 fit: BoxFit.cover,
               ),
             ),
@@ -29,7 +31,7 @@ class GetStartedScreen extends StatelessWidget {
                   fontSize: 14,
                 )),
             const SizedBox(
-              height: 10,
+              height: 40,
             ),
             SizedBox(
               width: Get.width,

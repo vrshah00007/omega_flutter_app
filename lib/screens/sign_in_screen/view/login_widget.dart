@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:omega_flutter_app/screens/sign_in_screen/controller/login_controller.dart';
 import 'package:omega_flutter_app/utils/custom_textform_filed.dart';
 import 'package:omega_flutter_app/utils/custom_widgets/custom_button.dart';
 
 import '../../../utils/color_const.dart';
+import '../../../utils/custom_widgets/custom_widget.dart';
 
 class LoginWidget extends StatelessWidget {
   LoginWidget({Key? key}) : super(key: key);
@@ -20,14 +22,19 @@ class LoginWidget extends StatelessWidget {
       child: ListView(
         shrinkWrap: true,
         children: [
-          const SizedBox(
-            height: 16,
+          CustomTextFormField(
+            hintText: "Email address",
+            borderRadius: 16,
+            textEditingController: loginController.emailController.value,
+            inputFormatter: [FilteringTextInputFormatter.deny(" ")],
           ),
-          CustomTextFormField(hintText: "Email address",borderRadius: 16),
-          const SizedBox(
-            height: 16,
+          CustomTextFormField(
+            hintText: "Password",
+            isPassword: true,
+            inputFormatter: [FilteringTextInputFormatter.deny(" ")],
+            borderRadius: 16,
+            textEditingController: loginController.passwordController.value,
           ),
-          CustomTextFormField(hintText: "Password", isPassword: true, borderRadius: 16,),
           SizedBox(
             height: 16,
           ),
@@ -55,17 +62,6 @@ class LoginWidget extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.black,
                         ),
-                        // children: [
-                        //   TextSpan(
-                        //       text: "See why this is important",
-                        //       recognizer: TapAndPanGestureRecognizer()
-                        //         ..onTapDown = (details) {
-                        //           print("lksjdj fkdhgjfgj");
-                        //         },
-                        //       style: TextStyle(
-                        //         color: blueColor,
-                        //       )),
-                        // ],
                       ),
                     ),
                   ),
@@ -79,6 +75,9 @@ class LoginWidget extends StatelessWidget {
           SizedBox(
             height: 48,
             child: CustomButton(
+              clickCallback: () {
+                loginController.loginCheck();
+              },
               title: "Login",
               color: yellowButtonColor,
               textColor: Colors.black,

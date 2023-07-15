@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import 'color_const.dart';
@@ -8,6 +9,8 @@ class CustomTextFormField extends StatelessWidget {
   String? title = "";
   bool? isPassword;
   double borderRadius = 0.0;
+  TextEditingController? textEditingController;
+  List<TextInputFormatter>? inputFormatter;
 
   CustomTextFormField({
     Key? key,
@@ -15,6 +18,8 @@ class CustomTextFormField extends StatelessWidget {
     this.isPassword,
     this.title,
     required this.borderRadius,
+    this.textEditingController,
+    this.inputFormatter,
   }) : super(key: key);
   final RxBool _showPassword = true.obs;
 
@@ -33,9 +38,11 @@ class CustomTextFormField extends StatelessWidget {
             height: 4,
           ),
           TextFormField(
+            controller: textEditingController,
             obscureText: (isPassword != null && isPassword == true)
                 ? _showPassword.value
                 : false,
+            inputFormatters: inputFormatter,
             decoration: InputDecoration(
               // contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
               border: InputBorder.none,

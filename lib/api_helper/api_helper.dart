@@ -6,14 +6,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'api_exception.dart';
 
-const String baseUrl = "";
+const String baseUrl = "https://growfxtrade.com/trade_api/";
 
 class ApiBaseHelper {
-  Future<dynamic> get(String url, {bool? isSocket}) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    // String token = LocalStorageRepository(prefs).getValue(KEY_USER_TOKEN);
-    // String token = prefs.getString(KEY_USER_TOKEN)!;
-    // String SocketToken = prefs.getString(KEY_SOCKET_ACCESS_TOKEN) ?? '';
+  Future<dynamic> get(String url,) async {
+
+
     var responseJson;
     try {
       final response = await http.get(
@@ -32,20 +30,20 @@ class ApiBaseHelper {
   }
 
   Future<dynamic> post(String url, dynamic requestBody,
-      {bool? tokenNotRequired, bool? isSocketUrl}) async {
+      {bool? tokenNotRequired,}) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     // String token = LocalStorageRepository(prefs).getValue(KEY_USER_TOKEN);
     // String token = prefs.getString(KEY_USER_TOKEN).toString();
     var responseJson;
     try {
       final response = await http.post(
-        Uri.parse("${isSocketUrl}$url"),
+        Uri.parse("$baseUrl$url"),
         body: requestBody,
-        headers: (tokenNotRequired != null && tokenNotRequired)
-            ? null
-            : {
-                // 'Authorization': 'Bearer $token',
-              },
+        // headers: (tokenNotRequired != null && tokenNotRequired)
+        //     ? null
+        //     : {
+        //         // 'Authorization': 'Bearer $token',
+        //       },
       );
       responseJson = _returnResponse(response);
     } on SocketException {

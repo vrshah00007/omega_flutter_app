@@ -6,8 +6,11 @@ import 'package:omega_flutter_app/utils/color_const.dart';
 import '../controller/dashboard_controller.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
+  PageController pageController;
+
   CustomBottomNavigationBar({
     super.key,
+    required this.pageController,
   });
 
   final dashboardController = Get.find<DashboardController>();
@@ -16,12 +19,15 @@ class CustomBottomNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() => BottomNavigationBar(
           selectedItemColor: activeIconBlueColor,
-          type:BottomNavigationBarType.fixed,
+          type: BottomNavigationBarType.fixed,
           selectedIconTheme: IconThemeData(color: activeIconBlueColor),
           unselectedItemColor: iconGreyColor,
           currentIndex: dashboardController.selectedIcon.value,
           onTap: (value) {
             dashboardController.selectedIcon.value = value;
+            pageController.animateToPage(value,
+                duration: const Duration(milliseconds: 1),
+                curve: Curves.linear);
           },
           items: [
             customBottomNavigationBarItem(
