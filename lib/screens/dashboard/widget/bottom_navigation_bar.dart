@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:omega_flutter_app/screens/profile/controller/profile_detail_controller.dart';
 import 'package:omega_flutter_app/utils/color_const.dart';
 import 'package:omega_flutter_app/utils/constants_labels.dart';
 
@@ -29,6 +30,10 @@ class CustomBottomNavigationBar extends StatelessWidget {
             pageController.animateToPage(value,
                 duration: const Duration(milliseconds: 1),
                 curve: Curves.linear);
+            print(value);
+            if(value ==3){
+              ProfileDetailController().getProfileDetail();
+            }
           },
           items: bottomItems(),
         ));

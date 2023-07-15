@@ -23,8 +23,9 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Omega',
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
+          appBarTheme: const AppBarTheme(color: Colors.white),
           fontFamily: "galano-grotesque-alt-cufonfonts",
         ),
         initialBinding: SplashBinding(),
