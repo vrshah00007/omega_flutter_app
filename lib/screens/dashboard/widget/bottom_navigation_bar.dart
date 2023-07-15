@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:omega_flutter_app/utils/color_const.dart';
+import 'package:omega_flutter_app/utils/constants_labels.dart';
 
 import '../controller/dashboard_controller.dart';
 
@@ -29,25 +30,29 @@ class CustomBottomNavigationBar extends StatelessWidget {
                 duration: const Duration(milliseconds: 1),
                 curve: Curves.linear);
           },
-          items: [
-            customBottomNavigationBarItem(
-              icon: "assets/home_screen_icons/🦆 icon _home 2_.svg",
-              label: "Home",
-            ),
-            customBottomNavigationBarItem(
-              icon: "assets/home_screen_icons/🦆 icon _folder open_.svg",
-              label: "Portfolio",
-            ),
-            customBottomNavigationBarItem(
-              icon: "assets/home_screen_icons/🦆 icon _mobile_.svg",
-              label: "Orders",
-            ),
-            customBottomNavigationBarItem(
-              icon: "assets/home_screen_icons/🦆 icon _user_.svg",
-              label: "Orders",
-            ),
-          ],
+          items: bottomItems(),
         ));
+  }
+
+  List<BottomNavigationBarItem> bottomItems() {
+    return [
+      customBottomNavigationBarItem(
+        icon: "assets/home_screen_icons/🦆 icon _home 2_.svg",
+        label: ConstantsLabels.homeLabel,
+      ),
+      customBottomNavigationBarItem(
+        icon: "assets/home_screen_icons/🦆 icon _folder open_.svg",
+        label: ConstantsLabels.portfolioLabel,
+      ),
+      customBottomNavigationBarItem(
+        icon: "assets/home_screen_icons/🦆 icon _mobile_.svg",
+        label: ConstantsLabels.orderLabel,
+      ),
+      customBottomNavigationBarItem(
+        icon: "assets/home_screen_icons/🦆 icon _user_.svg",
+        label: ConstantsLabels.profileLabel ,
+      ),
+    ];
   }
 
   BottomNavigationBarItem customBottomNavigationBarItem(

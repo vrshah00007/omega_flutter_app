@@ -21,7 +21,7 @@ class ApiBaseHelper {
         },
       );
       print(baseUrl + url);
-      responseJson = _returnResponse(response);
+      responseJson = returnResponse(response);
       print(response);
     } catch (e) {
       print(e);
@@ -30,10 +30,9 @@ class ApiBaseHelper {
   }
 
   Future<dynamic> post(String url, dynamic requestBody,
-      {bool? tokenNotRequired,}) async {
+      ) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    // String token = LocalStorageRepository(prefs).getValue(KEY_USER_TOKEN);
-    // String token = prefs.getString(KEY_USER_TOKEN).toString();
+
     var responseJson;
     try {
       final response = await http.post(
@@ -45,7 +44,7 @@ class ApiBaseHelper {
         //         // 'Authorization': 'Bearer $token',
         //       },
       );
-      responseJson = _returnResponse(response);
+      responseJson = returnResponse(response);
     } on SocketException {
       // Get.toNamed(noInternetScreen);
       throw FetchDataException('No Internet connection');
@@ -53,7 +52,7 @@ class ApiBaseHelper {
     return responseJson;
   }
 
-  dynamic _returnResponse(http.Response response) {
+  dynamic returnResponse(http.Response response) {
     switch (response.statusCode) {
       case 200:
         var responseJson = json.decode(response.body.toString());

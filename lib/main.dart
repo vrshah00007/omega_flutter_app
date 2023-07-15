@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
           fontFamily: "galano-grotesque-alt-cufonfonts",
         ),
         initialBinding: SplashBinding(),
+        getPages: getPages,
         home: SplashScreen(),
       ),
     );

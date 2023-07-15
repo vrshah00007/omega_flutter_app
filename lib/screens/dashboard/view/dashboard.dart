@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:get/get.dart';
 import 'package:omega_flutter_app/screens/dashboard/controller/dashboard_controller.dart';
 import 'package:omega_flutter_app/utils/color_const.dart';
 
+import '../../../utils/custom_widgets/custom_widget.dart';
 import '../widget/bottom_navigation_bar.dart';
+import '../widget/dashboard_body_widget.dart';
+import '../widget/dashboard_drawer_widget.dart';
 
 class Dashboard extends StatelessWidget {
   Dashboard({Key? key}) : super(key: key);
@@ -17,79 +21,32 @@ class Dashboard extends StatelessWidget {
       backgroundColor: Colors.white,
       bottomNavigationBar: CustomBottomNavigationBar(
           pageController: dashboardController.controller),
+      drawer: customDrawer(dashboardController),
       appBar: AppBar(
-        // leadingWidth: ,
-        leading: IconButton(
-            onPressed: () {
-              dashboardController.toggleDrawer();
-            },
-            icon: Icon(
-              Icons.menu,
-              color: blueColor,
-              size: 30,
+        title: Obx(() => Text(
+              dashboardController
+                  .appbarTitle[dashboardController.selectedIcon.value],
+              style: TextStyle(
+                  fontSize: 16,
+                  color: blackAppbarTitle,
+                  fontWeight: FontWeight.w700),
             )),
-        title: const Text(""),
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 16),
-            child: IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.search),
-
+            padding: const EdgeInsets.only(right: 20),
+            child: GestureDetector(
+              onTap: () {},
+              child: SvgPicture.asset(
+                  "assets/home_screen_icons/🦆 icon _search normal 1_.svg",
+                  height: 20,
+                  width: 20,
+                  fit: BoxFit.cover),
             ),
           )
         ],
       ),
-      body: Obx(() => ZoomDrawer(
-            controller: dashboardController.zoomController.value,
-            openCurve: Curves.fastOutSlowIn,
-            closeCurve: Curves.bounceIn,
-            menuScreen: customDrawer(),
-            // isRtl: true,
-            drawerShadowsBackgroundColor: Colors.white,
-            slideWidth: Get.width * .7,
-            angle: 0.0,
-            mainScreen: DashboardScreenWidget(
-                pageController: dashboardController.controller),
-          )),
+      body:
+          DashboardScreenWidget(pageController: dashboardController.controller),
     );
   }
-}
-
-class DashboardScreenWidget extends StatelessWidget {
-  PageController pageController;
-
-  DashboardScreenWidget({
-    super.key,
-    required this.pageController,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      // height: Get.height,
-      child: PageView(
-        controller: pageController,
-
-        physics: const NeverScrollableScrollPhysics(),
-        // dragStartBehavior: DragStartBehavior.down,
-        children: [
-          // Add widgets here
-          Container(child: const Center(child: Text("Watch List"))),
-          const Center(child: Text("Portfolio")),
-          const Center(child: Text("Orders")),
-          const Center(child: Text("Portfolio")),
-        ],
-      ),
-    );
-  }
-}
-
-Widget customDrawer() {
-  return const Drawer(
-    backgroundColor: Colors.white,
-    child: Column(
-      children: [Text("Welcome Back")],
-    ),
-  );
 }

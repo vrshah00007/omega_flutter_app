@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:omega_flutter_app/routes/routes_name.dart';
 import 'package:omega_flutter_app/screens/sign_in_screen/view/sign_in_screen.dart';
 
 import '../../../utils/color_const.dart';
@@ -38,9 +39,7 @@ class GetStartedScreen extends StatelessWidget {
               height: 48,
               child: CustomButton(
                 clickCallback: () {
-                  Get.to(
-                    () => const SignInScreen(),
-                  );
+                 Get.toNamed(Routes.singInScreen);
                 },
                 title: 'LET’S GET STARTED',
                 textColor: Colors.black,

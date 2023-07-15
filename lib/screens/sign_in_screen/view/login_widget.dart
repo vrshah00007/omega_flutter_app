@@ -72,16 +72,19 @@ class LoginWidget extends StatelessWidget {
           SizedBox(
             height: 36,
           ),
-          SizedBox(
-            height: 48,
-            child: CustomButton(
-              clickCallback: () {
-                loginController.loginCheck();
-              },
-              title: "Login",
-              color: yellowButtonColor,
-              textColor: Colors.black,
-            ),
+          Obx(
+            () => SizedBox(
+                height: 48,
+                child: loginController.isLoading.value
+                    ? const Center(child: CommonLoading())
+                    : CustomButton(
+                        clickCallback: () {
+                          loginController.loginCheck();
+                        },
+                        title: "Login",
+                        color: yellowButtonColor,
+                        textColor: Colors.black,
+                      )),
           )
         ],
       ),

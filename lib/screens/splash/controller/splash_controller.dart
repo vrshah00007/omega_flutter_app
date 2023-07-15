@@ -13,7 +13,7 @@ class SplashController extends GetxController {
   void toGetStartedScreen() {
     Future.delayed(
       const Duration(seconds: 3),
-      () => Get.to(() => const GetStartedScreen()),
+      () => Get.toNamed(Routes.getStartedScreen),
     );
   }
 }
