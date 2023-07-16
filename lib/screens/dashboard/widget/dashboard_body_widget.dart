@@ -18,11 +18,11 @@ class DashboardScreenWidget extends StatelessWidget {
 
         physics: const NeverScrollableScrollPhysics(),
         // dragStartBehavior: DragStartBehavior.down,
-        children: const [
+        children: [
           // Add widgets here
-          Center(child: Text("Watch List")),
-          Center(child: Text("Portfolio")),
-          Center(child: Text("Orders")),
+          const Center(child: Text("Watch List")),
+          const Center(child: Text("Portfolio")),
+          const Center(child: Text("Orders")),
           ProfileDetailScreen(),
         ],
       ),

@@ -9,7 +9,7 @@ import '../../../api_helper/api_end_points.dart';
 import '../../../api_helper/api_exception.dart';
 
 class LoginApiService {
-  Future<LoginModelResponse?> Loginpost(LoginModelRequest request) async {
+  Future<LoginModelResponse?> loginPost(LoginModelRequest request) async {
     var responseJson;
     try {
       final response = await http.post(

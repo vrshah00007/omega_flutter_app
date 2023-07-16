@@ -9,9 +9,9 @@ import 'api_exception.dart';
 const String baseUrl = "https://growfxtrade.com/trade_api/";
 
 class ApiBaseHelper {
-  Future<dynamic> get(String url,) async {
-
-
+  Future<dynamic> get(
+    String url,
+  ) async {
     var responseJson;
     try {
       final response = await http.get(
@@ -29,10 +29,10 @@ class ApiBaseHelper {
     return responseJson;
   }
 
-  Future<dynamic> post(String url, dynamic requestBody,
-      ) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-
+  Future<dynamic> post(
+    String url,
+    dynamic requestBody,
+  ) async {
     var responseJson;
     try {
       final response = await http.post(

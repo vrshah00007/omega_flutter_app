@@ -9,3 +9,5 @@ Color blackButtonColor = const Color(0xFF2E2E2E);
 Color blackAppbarTitle = const Color(0xFF6A6666);
 Color dividerButtonColor = const Color(0xFFDBDBDB);
 Color lightBlueColor = const Color(0xFFECEFFE);
+Color greenColor = const Color(0xFF4BAA6A);
+Color whiteColor = const Color(0xFFFFFFFF);

@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:omega_flutter_app/routes/routes_name.dart';
-import 'package:omega_flutter_app/utils/shared_prefrence_key.dart';
+import 'package:omega_flutter_app/utils/shared_preference_key.dart';
 
 import '../../../utils/custom_widgets/custom_widget.dart';
-import '../../../utils/shared_prefrence_helper.dart';
+import '../../../utils/shared_preference_helper.dart';
 import '../data/login_api_service.dart';
 import '../model/login_model.dart';
 
@@ -44,7 +44,7 @@ class LoginController extends GetxController {
       isLoading(false);
     } else {
       LoginApiService()
-          .Loginpost(LoginModelRequest(
+          .loginPost(LoginModelRequest(
         email: emailController.value.text,
         password: passwordController.value.text,
       ))

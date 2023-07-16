@@ -1,9 +1,8 @@
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:omega_flutter_app/screens/profile/data/profile_detail_api_service.dart';
-import 'package:omega_flutter_app/utils/shared_prefrence_helper.dart';
-import 'package:omega_flutter_app/utils/shared_prefrence_key.dart';
-
-import '../../../utils/shared_prefrence_helper.dart';
+import 'package:omega_flutter_app/utils/shared_preference_helper.dart';
+import 'package:omega_flutter_app/utils/shared_preference_key.dart';
 import '../model/profile_detail_model.dart';
 
 class ProfileDetailController extends GetxController {
@@ -11,19 +10,18 @@ class ProfileDetailController extends GetxController {
   Rx<ProfileDetailModelResponse> responseModel =
       ProfileDetailModelResponse().obs;
 
-  @override
-  void onInit() {
-    // TODO: implement onInit
-    super.onInit();
-  }
+  ProfileDetailModelResponse modelResponse = ProfileDetailModelResponse();
 
   getProfileDetail() async {
     await sharedPrefs.initialize();
-    String id = sharedPrefs.getString(SharedPreferenceKey.userID) ?? "idid";
+    String id = sharedPrefs.getString(SharedPreferenceKey.userID) ?? "";
     ProfileDetailApiServices().get(id).then((value) {
-      print(value);
+      if (kDebugMode) {
+        print(value?.toJson() ?? "");
+      }
+      modelResponse = value!;
       if (value != null) {
-        responseModel.value = value;
+        // responseModel.value = value;
       }
     });
   }

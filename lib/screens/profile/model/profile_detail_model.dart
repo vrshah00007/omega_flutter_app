@@ -78,12 +78,12 @@ class WalletData {
   String? docNo;
   String? panNo;
   String? state;
-  String? documentType;
+  dynamic? documentType;
   String? documentFrontImage;
   String? documentBackImage;
   String? bankName;
   String? upiId;
-  Null? app;
+  dynamic? app;
   String? walletId;
   String? amountt;
   String? profit;
