@@ -10,7 +10,7 @@ class ProfileDetailController extends GetxController {
   Rx<ProfileDetailModelResponse> responseModel =
       ProfileDetailModelResponse().obs;
 
-  ProfileDetailModelResponse modelResponse = ProfileDetailModelResponse();
+  // ProfileDetailModelResponse modelResponse = ProfileDetailModelResponse();
 
   getProfileDetail() async {
     await sharedPrefs.initialize();
@@ -19,7 +19,7 @@ class ProfileDetailController extends GetxController {
       if (kDebugMode) {
         print(value?.toJson() ?? "");
       }
-      modelResponse = value!;
+      // modelResponse = value!;
       if (value != null) {
         // responseModel.value = value;
       }

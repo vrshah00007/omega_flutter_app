@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:omega_flutter_app/screens/portfolio/controller/portfolio_controller.dart';
 import 'package:omega_flutter_app/screens/profile/controller/profile_detail_controller.dart';
 import 'package:omega_flutter_app/utils/color_const.dart';
 import 'package:omega_flutter_app/utils/constants_labels.dart';
@@ -31,8 +32,10 @@ class CustomBottomNavigationBar extends StatelessWidget {
                 duration: const Duration(milliseconds: 1),
                 curve: Curves.linear);
             print(value);
-            if(value ==3){
+            if (value == 3) {
               ProfileDetailController().getProfileDetail();
+            } else if (value == 1) {
+              PortfolioController().getPortfolioDetails();
             }
           },
           items: bottomItems(),
@@ -55,7 +58,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
       ),
       customBottomNavigationBarItem(
         icon: "assets/home_screen_icons/🦆 icon _user_.svg",
-        label: ConstantsLabels.profileLabel ,
+        label: ConstantsLabels.profileLabel,
       ),
     ];
   }
