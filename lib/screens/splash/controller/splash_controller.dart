@@ -21,7 +21,7 @@ class SplashController extends GetxController {
     String id = "";
     id = sharedPrefs.getString(SharedPreferenceKey.userID) ?? "";
     print(id);
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 3), () {
       if (id != null && id != "") {
         Get.offNamed(Routes.homeScreen);
       } else {

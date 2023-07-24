@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:omega_flutter_app/screens/orders/controller/orders_controller.dart';
 import 'package:omega_flutter_app/screens/portfolio/controller/portfolio_controller.dart';
 import 'package:omega_flutter_app/screens/profile/controller/profile_detail_controller.dart';
 import 'package:omega_flutter_app/utils/color_const.dart';
@@ -36,6 +37,8 @@ class CustomBottomNavigationBar extends StatelessWidget {
               ProfileDetailController().getProfileDetail();
             } else if (value == 1) {
               PortfolioController().getPortfolioDetails();
+            } else if (value == 2) {
+              OrdersController().openOrderHistory();
             }
           },
           items: bottomItems(),

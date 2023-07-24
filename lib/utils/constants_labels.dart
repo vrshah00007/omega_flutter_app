@@ -20,5 +20,6 @@ class ConstantsLabels {
   static const labelInvest = "Invest";
   static const labelOpenOrder = "Open Order";
   static const labelCancelOrder = "Cancel Order";
-
+  static const labelCurrencyName = "Currency Name";
+  static const labelCurrencyBuyPrice = "Currency Buy Price";
 }

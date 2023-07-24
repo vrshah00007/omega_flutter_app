@@ -25,7 +25,7 @@ class OrdersScreen extends StatelessWidget {
             ),
           ),
         ),
-        body: const TabBarView(
+        body:  TabBarView(
           children: [
             OpenOrdersTabViewWidget(),
             Text("Close Orders"),
