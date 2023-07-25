@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:omega_flutter_app/screens/dashboard/controller/dashboard_controller.dart';
 
+import '../../../routes/routes_name.dart';
 import '../../../utils/custom_widgets/custom_widget.dart';
 
 Widget customDrawer(DashboardController dashboardController) {
+  GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
   return Drawer(
+    key: scaffoldKey,
     backgroundColor: Colors.white,
     elevation: 10,
     child: SafeArea(
@@ -47,22 +51,33 @@ Widget customDrawer(DashboardController dashboardController) {
                 return Padding(
                   padding: const EdgeInsets.only(
                       left: 16, right: 16, top: 0, bottom: 6),
-                  child: Row(
-                    children: [
-                      // SvgPicture.asset(drawerIconList,
-                      //     height: 25, width: 26, color: Colors.black),
-                      Image.asset(
-                        drawerIconList,
-                        height: 25,
-                        width: 25,
-                        fit: BoxFit.cover,
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Text(drawerList,
-                          style: const TextStyle(fontWeight: FontWeight.bold)),
-                    ],
+                  child: GestureDetector(
+                    onTap: () {
+                      if (scaffoldKey.currentState?.isDrawerOpen ?? true) {
+                        Get.back();
+                      }
+                      if (index == 7) {
+                        Get.toNamed(Routes.transactionScreen);
+                      }
+                    },
+                    child: Row(
+                      children: [
+                        // SvgPicture.asset(drawerIconList,
+                        //     height: 25, width: 26, color: Colors.black),
+                        Image.asset(
+                          drawerIconList,
+                          height: 25,
+                          width: 25,
+                          fit: BoxFit.cover,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Text(drawerList,
+                            style:
+                                const TextStyle(fontWeight: FontWeight.bold)),
+                      ],
+                    ),
                   ),
                 );
               },

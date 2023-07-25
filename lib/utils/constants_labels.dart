@@ -26,4 +26,12 @@ class ConstantsLabels {
   static const labelOrderID = "Order ID";
   static const labelOrderAmount = "Amount";
   static const labelSell = "SELL";
+  static const labelTransaction = "Transaction";
+  static const labelTotalInvest = "Total Invest";
+  static const labelTotalWithdrawal = " Total Withdrawal";
+  static const labelTotalProfit = " Total Profit";
+  static const labelTotalLoss = " Total Loss";
+  // Total Withdrawal
+  // Total Profit
+  // Total Loss";
 }

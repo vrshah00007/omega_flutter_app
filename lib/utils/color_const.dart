@@ -7,6 +7,7 @@ Color borderGreyColor = const Color(0xFF808080);
 Color iconGreyColor = const Color(0xFF858383);
 Color blackButtonColor = const Color(0xFF2E2E2E);
 Color blackAppbarTitle = const Color(0xFF6A6666);
+Color greyColor = const Color(0xFFECECF1);
 Color dividerButtonColor = const Color(0xFFDBDBDB);
 Color lightBlueColor = const Color(0xFFECEFFE);
 Color greenColor = const Color(0xFF4BAA6A);

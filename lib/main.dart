@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
+          drawerTheme: const DrawerThemeData(backgroundColor: Colors.white),
           cardColor: Colors.white,
           appBarTheme: const AppBarTheme(color: Colors.white),
           fontFamily: "galano-grotesque-alt-cufonfonts",
