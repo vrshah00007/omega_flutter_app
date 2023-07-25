@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
+
 import 'package:get/get.dart';
 
 import '../../../utils/constants_labels.dart';
 
 class DashboardController extends GetxController {
   RxInt selectedIcon = 0.obs;
-  Rx<ZoomDrawerController> zoomController = ZoomDrawerController().obs;
+
   final PageController controller = PageController();
 
-  void toggleDrawer() {
-    zoomController.value.toggle!.call();
-    update();
-  }
+
 
   List drawerItemList = [
     "Watchlist",
@@ -24,6 +21,18 @@ class DashboardController extends GetxController {
     "Portfolio",
     "Transaction",
     "Order",
+  ];
+  List drawerIconList=[
+    'assets/drawer_icons/Watchlist.png',
+    'assets/drawer_icons/Personal information.png',
+    'assets/drawer_icons/Graph.png',
+    'assets/drawer_icons/Appointment.png',
+    'assets/drawer_icons/Stock market.png',
+    'assets/drawer_icons/Bank.png',
+    'assets/drawer_icons/Briefcase.png',
+    'assets/drawer_icons/Negotiating.png',
+    'assets/drawer_icons/Fulfillment.png',
+
   ];
 
   List appbarTitle = [

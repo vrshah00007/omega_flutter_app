@@ -44,7 +44,7 @@ class PortfolioStackWidget extends StatelessWidget {
           child: RichText(
             text: TextSpan(
                 text: ConstantsLabels.totalProfitLoss,
-                style: TextStyle(color: Colors.black),
+                style: const TextStyle(color: Colors.black),
                 children: [
                   TextSpan(
                       text:
@@ -62,42 +62,43 @@ class PortfolioStackWidget extends StatelessWidget {
           child: SizedBox(
             width: Get.width,
             height: 60,
-            child: Card(
-              color: whiteColor,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8)),
-              elevation: 10,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const Text(ConstantsLabels.yourProfitLoss),
-                      Text("\$ ${data.profitLoss}",
-                          style: TextStyle(
-                            color: greenColor,
-                            fontWeight: FontWeight.w700,
-                          )),
-                    ],
-                  ),
-                  SizedBox(
-                    width: Get.width * 0.2,
-                    child: VerticalDivider(color: Colors.black),
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const Text(ConstantsLabels.availableLabel),
-                      Text("\$ ${data.available}",
-                          style: TextStyle(
-                            color: greenColor,
-                            fontWeight: FontWeight.w700,
-                          )),
-                    ],
-                  ),
-                ],
+            child: Material(
+              elevation: 2,
+              borderRadius: BorderRadius.circular(8),
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const Text(ConstantsLabels.yourProfitLoss),
+                        Text("\$ ${data.profitLoss ?? ""}",
+                            style: TextStyle(
+                              color: greenColor,
+                              fontWeight: FontWeight.w700,
+                            )),
+                      ],
+                    ),
+                    SizedBox(
+                      width: Get.width * 0.2,
+                      child: const VerticalDivider(color: Colors.black),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const Text(ConstantsLabels.availableLabel),
+                        Text("\$ ${data.available ?? ""}",
+                            style: TextStyle(
+                              color: greenColor,
+                              fontWeight: FontWeight.w700,
+                            )),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

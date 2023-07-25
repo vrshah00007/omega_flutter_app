@@ -26,6 +26,9 @@ class PortfolioScreen extends StatelessWidget {
           PortfolioCard(
               title: ConstantsLabels.labelTotalForexBuy,
               subTitle: "\$ ${data.totalBuy.toString()}" ?? ""),
+          SizedBox(
+            height: 6,
+          ),
           PortfolioCard(
               title: ConstantsLabels.labelWithdrawal,
               subTitle: "\$ ${data.withdraw.toString()}" ?? ""),

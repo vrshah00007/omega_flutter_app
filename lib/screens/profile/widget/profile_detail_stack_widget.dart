@@ -58,42 +58,45 @@ Stack profileDetailStackWidget(ProfileDetailModelResponse model) {
         child: SizedBox(
           width: Get.width,
           height: 60,
-          child: Card(
-            color: Colors.white,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-            elevation: 10,
-            child: Row(
-              // mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Text(ConstantsLabels.totalPortfolio),
-                    Text("\$ ${model.walletData?.amountt}",
-                        style: TextStyle(
-                          color: greenColor,
-                          fontWeight: FontWeight.w700,
-                        )),
-                  ],
-                ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 50),
-                  child: VerticalDivider(color: Colors.black),
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Text(ConstantsLabels.profitLabel),
-                    Text("\$ ${model.walletData?.profit}",
-                        style: TextStyle(
-                          color: greenColor,
-                          fontWeight: FontWeight.w700,
-                        )),
-                  ],
-                ),
-              ],
+          child: Material(
+            elevation: 2,borderRadius: BorderRadius.circular(8),
+            child: Container(
+              decoration:  BoxDecoration(
+                  color: Colors.white,
+                borderRadius: BorderRadius.circular(8)
+                 ),
+              child: Row(
+                // mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Text(ConstantsLabels.totalPortfolio),
+                      Text("\$ ${model.walletData?.amountt}",
+                          style: TextStyle(
+                            color: greenColor,
+                            fontWeight: FontWeight.w700,
+                          )),
+                    ],
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 50),
+                    child: VerticalDivider(color: Colors.black),
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Text(ConstantsLabels.profitLabel),
+                      Text("\$ ${model.walletData?.profit}",
+                          style: TextStyle(
+                            color: greenColor,
+                            fontWeight: FontWeight.w700,
+                          )),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),

@@ -49,7 +49,7 @@ class LoginController extends GetxController {
         password: passwordController.value.text,
       ))
           .then((value) {
-        print(value?.msg);
+        // print(value?.msg);
         if (value != null) {
           if (value.staus == 0) {
             isLoading(false);

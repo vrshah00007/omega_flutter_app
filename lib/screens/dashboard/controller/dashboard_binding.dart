@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:omega_flutter_app/screens/dashboard/controller/dashboard_controller.dart';
+import 'package:omega_flutter_app/screens/orders/controller/orders_controller.dart';
 import 'package:omega_flutter_app/screens/profile/controller/profile_detail_controller.dart';
 
 class DashboardBinding extends Bindings {
@@ -8,5 +9,6 @@ class DashboardBinding extends Bindings {
     // TODO: implement dependencies
     Get.lazyPut(() => DashboardController());
     Get.lazyPut(() => ProfileDetailController());
+    Get.lazyPut(() => OrdersController());
   }
 }

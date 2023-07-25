@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:omega_flutter_app/screens/portfolio/view/portfolio_screen.dart';
 import 'package:omega_flutter_app/screens/profile/view/profile_detail_screen/profile_detail_screen.dart';
 
+import '../../orders/view/order_screen.dart';
+
 class DashboardScreenWidget extends StatelessWidget {
   PageController pageController;
 
@@ -23,7 +25,7 @@ class DashboardScreenWidget extends StatelessWidget {
           // Add widgets here
           const Center(child: Text("Watch List")),
           PortfolioScreen(),
-          const Center(child: Text("Orders")),
+          OrdersScreen(),
           ProfileDetailScreen(),
         ],
       ),

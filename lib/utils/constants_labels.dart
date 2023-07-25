@@ -18,5 +18,7 @@ class ConstantsLabels {
   static const labelTotalForexBuy = "Total Forex Buy";
   static const labelWithdrawal = "Withdrawal";
   static const labelInvest = "Invest";
+  static const labelOpenOrder = "Open Order";
+  static const labelCancelOrder = "Cancel Order";
 
 }

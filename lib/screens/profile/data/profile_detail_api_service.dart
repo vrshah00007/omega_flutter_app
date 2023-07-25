@@ -14,7 +14,7 @@ class ProfileDetailApiServices {
 
     try {
       final response = await http.get(
-        Uri.parse(baseUrl + ApiEndPoint.profileDetail + "?id=$id"),
+        Uri.parse("$baseUrl${ApiEndPoint.profileDetail}?id=$id"),
         // headers: {
         //   // 'Authorization': 'Bearer $token',
         // },

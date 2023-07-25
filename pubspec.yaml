@@ -40,7 +40,6 @@ dependencies:
   get:
   http:
   cached_network_image:
-  flutter_zoom_drawer: ^3.1.1
   flutter_svg: ^2.0.7
   fluttertoast: ^8.2.2
 
@@ -71,6 +70,7 @@ flutter:
     - assets/splash/
     - assets/home_screen_icons/
     - assets/profile_detail_icon/
+    - assets/drawer_icons/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

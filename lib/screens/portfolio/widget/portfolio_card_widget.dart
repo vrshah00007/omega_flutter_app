@@ -14,15 +14,22 @@ class PortfolioCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: whiteColor,
-      child: ListTile(
-        // contentPadding: const EdgeInsets.symmetric(horizontal: 16),
-
-        title: Text(title),
-        trailing: Text(subTitle ?? "",
-            style: TextStyle(
-                color: greenColor, fontSize: 16, fontWeight: FontWeight.w700)),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+      child: Material(
+        borderRadius: BorderRadius.circular(8),
+        elevation: 2,
+        child: Container(
+          color: whiteColor,
+          child: ListTile(
+            title: Text(title ?? ""),
+            trailing: Text(subTitle ?? "",
+                style: TextStyle(
+                    color: greenColor,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700)),
+          ),
+        ),
       ),
     );
   }

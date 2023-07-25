@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:omega_flutter_app/screens/dashboard/controller/dashboard_controller.dart';
 
 import '../../../utils/custom_widgets/custom_widget.dart';
@@ -27,7 +28,7 @@ Widget customDrawer(DashboardController dashboardController) {
             ],
           ),
           const SizedBox(
-            height: 16,
+            height: 50,
           ),
           SizedBox(
             // height: Get.height * .72,
@@ -42,11 +43,27 @@ Widget customDrawer(DashboardController dashboardController) {
               },
               itemBuilder: (context, index) {
                 var drawerList = dashboardController.drawerItemList[index];
+                var drawerIconList = dashboardController.drawerIconList[index];
                 return Padding(
                   padding: const EdgeInsets.only(
-                      left: 16, right: 16, top: 6, bottom: 6),
-                  child: Text(drawerList,
-                      style: const TextStyle(fontWeight: FontWeight.bold)),
+                      left: 16, right: 16, top: 0, bottom: 6),
+                  child: Row(
+                    children: [
+                      // SvgPicture.asset(drawerIconList,
+                      //     height: 25, width: 26, color: Colors.black),
+                      Image.asset(
+                        drawerIconList,
+                        height: 25,
+                        width: 25,
+                        fit: BoxFit.cover,
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Text(drawerList,
+                          style: const TextStyle(fontWeight: FontWeight.bold)),
+                    ],
+                  ),
                 );
               },
             ),
