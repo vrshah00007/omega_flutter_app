@@ -19,7 +19,11 @@ class ConstantsLabels {
   static const labelWithdrawal = "Withdrawal";
   static const labelInvest = "Invest";
   static const labelOpenOrder = "Open Order";
-  static const labelCancelOrder = "Cancel Order";
+  static const labelCloseOrder = "Close Order";
   static const labelCurrencyName = "Currency Name";
   static const labelCurrencyBuyPrice = "Currency Buy Price";
+  static const labelOrderedDate = "Order Date";
+  static const labelOrderID = "Order ID";
+  static const labelOrderAmount = "Amount";
+  static const labelSell = "SELL";
 }

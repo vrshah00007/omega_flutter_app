@@ -42,6 +42,7 @@ dependencies:
   cached_network_image:
   flutter_svg: ^2.0.7
   fluttertoast: ^8.2.2
+  intl: ^0.18.1
 
 dev_dependencies:
   flutter_test:

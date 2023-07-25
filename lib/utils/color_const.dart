@@ -11,3 +11,4 @@ Color dividerButtonColor = const Color(0xFFDBDBDB);
 Color lightBlueColor = const Color(0xFFECEFFE);
 Color greenColor = const Color(0xFF4BAA6A);
 Color whiteColor = const Color(0xFFFFFFFF);
+Color redColor = const Color(0xFFBA0F0F);

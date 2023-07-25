@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:omega_flutter_app/screens/orders/controller/orders_controller.dart';
 
+import '../widget/close_order_tab_view_widget.dart';
 import '../widget/open_orders_tab_view_widget.dart';
 import '../widget/order_tab_bar_widget.dart';
 
@@ -15,7 +16,7 @@ class OrdersScreen extends StatelessWidget {
       length: 2,
       initialIndex: orderController.initialIndex.value,
       child: Scaffold(
-        backgroundColor: Colors.white,
+        // backgroundColor: Colors.white,
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(60),
           child: AppBar(
@@ -25,12 +26,16 @@ class OrdersScreen extends StatelessWidget {
             ),
           ),
         ),
-        body:  TabBarView(
-          children: [
-            OpenOrdersTabViewWidget(),
-            Text("Close Orders"),
-          ],
-        ),
+        body: Obx(() {
+          print(orderController.initialIndex.value);
+          return TabBarView(
+            physics: const NeverScrollableScrollPhysics(),
+            children: [
+              OpenOrdersTabViewWidget(),
+              CloseOrderTabViewWidget(),
+            ],
+          );
+        }),
       ),
     );
   }

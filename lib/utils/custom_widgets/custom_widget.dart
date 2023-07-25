@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:omega_flutter_app/utils/color_const.dart';
-
+final DateFormat formatter = DateFormat('dd-MM-yyyy-HH:mm');
 class CustomWidget {
   customSnackBar({String? message}) {
     return Get.rawSnackbar(
