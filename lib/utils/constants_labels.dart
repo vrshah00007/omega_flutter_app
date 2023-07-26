@@ -17,6 +17,7 @@ class ConstantsLabels {
   static const labelAadhaarCardNumber = "Aadhaar Card Number";
   static const labelTotalForexBuy = "Total Forex Buy";
   static const labelWithdrawal = "Withdrawal";
+  static const labelWithdraw = "Withdraw";
   static const labelInvest = "Invest";
   static const labelOpenOrder = "Open Order";
   static const labelCloseOrder = "Close Order";
@@ -31,7 +32,8 @@ class ConstantsLabels {
   static const labelTotalWithdrawal = " Total Withdrawal";
   static const labelTotalProfit = " Total Profit";
   static const labelTotalLoss = " Total Loss";
-  // Total Withdrawal
-  // Total Profit
-  // Total Loss";
+  static const labelInvestMoney = "Invest Money";
+// Total Withdrawal
+// Total Profit
+// Total Loss";
 }

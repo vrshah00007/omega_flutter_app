@@ -21,7 +21,7 @@ class PortfolioStackWidget extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          height: Get.height * 0.26,
+          height: Get.height * 0.30,
           width: Get.width,
           decoration: const BoxDecoration(
             color: Colors.white,
@@ -56,49 +56,78 @@ class PortfolioStackWidget extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: 140,
-          left: 10,
-          right: 10,
+          top: 136,
+          left: 18,
+          right: 18,
+          child: Container(
+              width: Get.width,
+              height: 65,
+              decoration: BoxDecoration(
+                  color: iconGreyColor.withOpacity(0.4),
+                  borderRadius: const BorderRadius.only(
+                      bottomLeft: Radius.circular(8),
+                      bottomRight: Radius.circular(8)))),
+        ),
+        Positioned(
+          top: 120,
+          left: 20,
+          right: 20,
           child: SizedBox(
             width: Get.width,
-            height: 60,
+            height: 80,
             child: Material(
               elevation: 2,
               borderRadius: BorderRadius.circular(8),
-              child: Container(
-                padding: const EdgeInsets.symmetric(vertical: 8),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Column(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 20, horizontal: 0),
+                    child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        const Text(ConstantsLabels.yourProfitLoss),
+                        Text(ConstantsLabels.yourProfitLoss,
+                            style: TextStyle(
+                              color: greyTextColor,
+                              fontFamily: "arial-cufonfonts",
+                            )),
                         Text("\$ ${data.profitLoss ?? ""}",
                             style: TextStyle(
+                              fontFamily: "arial-cufonfonts",
                               color: greenColor,
-                              fontWeight: FontWeight.w700,
+                              fontWeight: FontWeight.bold,
                             )),
                       ],
                     ),
-                    SizedBox(
-                      width: Get.width * 0.2,
-                      child: const VerticalDivider(color: Colors.black),
-                    ),
-                    Column(
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 32, vertical: 20),
+                    child: VerticalDivider(color: iconGreyColor),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 20, horizontal: 0),
+                    child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        const Text(ConstantsLabels.availableLabel),
+                        Text(ConstantsLabels.availableLabel,
+                            style: TextStyle(
+                              color: greyTextColor,
+                              fontFamily: "arial-cufonfonts",
+                            )),
                         Text("\$ ${data.available ?? ""}",
                             style: TextStyle(
+                              fontFamily: "arial-cufonfonts",
                               color: greenColor,
-                              fontWeight: FontWeight.w700,
+                              fontWeight: FontWeight.bold,
                             )),
                       ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),

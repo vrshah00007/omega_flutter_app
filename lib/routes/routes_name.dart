@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:omega_flutter_app/screens/dashboard/controller/dashboard_binding.dart';
 import 'package:omega_flutter_app/screens/dashboard/view/dashboard.dart';
+import 'package:omega_flutter_app/screens/invest/view/invest_screen.dart';
 import 'package:omega_flutter_app/screens/sign_in_screen/binding/sign_in_binding.dart';
 import 'package:omega_flutter_app/screens/sign_in_screen/view/sign_in_screen.dart';
 import 'package:omega_flutter_app/screens/transaction/view/transaction_screen.dart';
@@ -16,6 +17,7 @@ class Routes {
   static String homeScreen = '/Home_Screen';
   static String singInScreen = '/Sign_IN_Screen';
   static String transactionScreen = '/Transaction_Screen';
+  static String investScreen = '/Invest_Screen';
 }
 
 final getPages = [
@@ -45,5 +47,9 @@ final getPages = [
     name: Routes.transactionScreen,
     page: () => TransactionScreen(),
     binding: TransactionBinding(),
+  ),
+  GetPage(
+    name: Routes.investScreen,
+    page: () =>  InvestScreen(),
   ),
 ];

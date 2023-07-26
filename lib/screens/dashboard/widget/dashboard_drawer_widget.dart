@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:omega_flutter_app/screens/dashboard/controller/dashboard_controller.dart';
+import 'package:omega_flutter_app/screens/portfolio/controller/portfolio_controller.dart';
+import 'package:omega_flutter_app/screens/profile/controller/profile_detail_controller.dart';
 
 import '../../../routes/routes_name.dart';
 import '../../../utils/custom_widgets/custom_widget.dart';
@@ -58,6 +60,10 @@ Widget customDrawer(DashboardController dashboardController) {
                       }
                       if (index == 7) {
                         Get.toNamed(Routes.transactionScreen);
+                      } else if (index == 4) {
+                        Get.find<ProfileDetailController>().getProfileDetail();
+                        Get.find<PortfolioController>().getPortfolioDetails();
+                        Get.toNamed(Routes.investScreen);
                       }
                     },
                     child: Row(
