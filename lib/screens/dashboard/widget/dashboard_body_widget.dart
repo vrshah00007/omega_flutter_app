@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:omega_flutter_app/screens/portfolio/view/portfolio_screen.dart';
 import 'package:omega_flutter_app/screens/profile/view/profile_detail_screen/profile_detail_screen.dart';
+import 'package:omega_flutter_app/screens/watchlist/view/watchlist_screen.dart';
 
 import '../../orders/view/order_screen.dart';
 
@@ -23,7 +24,7 @@ class DashboardScreenWidget extends StatelessWidget {
         // dragStartBehavior: DragStartBehavior.down,
         children: [
           // Add widgets here
-          const Center(child: Text("Watch List")),
+          const WatchlistScreen(),
           PortfolioScreen(),
           OrdersScreen(),
           ProfileDetailScreen(),
