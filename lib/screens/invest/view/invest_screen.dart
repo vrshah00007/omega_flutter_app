@@ -52,7 +52,7 @@ class InvestScreen extends StatelessWidget {
               iconHeight: 28,
               iconWidth: 28,
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             Padding(
@@ -67,7 +67,7 @@ class InvestScreen extends StatelessWidget {
                           "assets/drawer_icons/🦆 icon _dollar square_.svg",
                           height: 26,
                           width: 26),
-                      contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                      contentPadding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                       focusedErrorBorder: buildOutlineInputBorder(),
                       border: buildOutlineInputBorder(),
                       focusedBorder: buildOutlineInputBorder(),
@@ -75,11 +75,11 @@ class InvestScreen extends StatelessWidget {
                       enabledBorder: buildOutlineInputBorder(),
                       disabledBorder: buildOutlineInputBorder(),
                       labelText: 'Description',
-                      labelStyle: TextStyle(color: Colors.black),
+                      labelStyle: const TextStyle(color: Colors.black),
                     )),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
           ],
