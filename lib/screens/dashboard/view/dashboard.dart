@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'package:get/get.dart';
+import 'package:omega_flutter_app/routes/routes_name.dart';
 import 'package:omega_flutter_app/screens/dashboard/controller/dashboard_controller.dart';
 import 'package:omega_flutter_app/utils/color_const.dart';
 
@@ -34,7 +35,9 @@ class Dashboard extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: 20),
             child: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Get.toNamed(Routes.searchScreen);
+              },
               child: SvgPicture.asset(
                   "assets/home_screen_icons/🦆 icon _search normal 1_.svg",
                   height: 20,

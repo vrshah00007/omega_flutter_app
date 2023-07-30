@@ -14,7 +14,7 @@ Stack investMoneyDetailStackWidget(
   return Stack(
     children: [
       Container(
-        height: Get.height * 0.3,
+        height: Get.height * 0.28,
         width: Get.width,
         decoration: const BoxDecoration(
           color: Colors.white,

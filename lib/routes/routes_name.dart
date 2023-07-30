@@ -1,12 +1,15 @@
 import 'package:get/get.dart';
 import 'package:omega_flutter_app/screens/dashboard/controller/dashboard_binding.dart';
 import 'package:omega_flutter_app/screens/dashboard/view/dashboard.dart';
+import 'package:omega_flutter_app/screens/invest/controller/binding.dart';
 import 'package:omega_flutter_app/screens/invest/view/invest_screen.dart';
+import 'package:omega_flutter_app/screens/search/view/search_screen.dart';
 import 'package:omega_flutter_app/screens/sign_in_screen/binding/sign_in_binding.dart';
 import 'package:omega_flutter_app/screens/sign_in_screen/view/sign_in_screen.dart';
 import 'package:omega_flutter_app/screens/transaction/view/transaction_screen.dart';
 
 import '../screens/get_started/view/get_started_screen.dart';
+import '../screens/search/controller/search_binding.dart';
 import '../screens/splash/binding/splash_binding.dart';
 import '../screens/splash/view/splash.dart';
 import '../screens/transaction/controller/transaction_binding.dart';
@@ -18,6 +21,7 @@ class Routes {
   static String singInScreen = '/Sign_IN_Screen';
   static String transactionScreen = '/Transaction_Screen';
   static String investScreen = '/Invest_Screen';
+  static String searchScreen = '/Search_Screen';
 }
 
 final getPages = [
@@ -50,6 +54,12 @@ final getPages = [
   ),
   GetPage(
     name: Routes.investScreen,
-    page: () =>  InvestScreen(),
+    page: () => InvestScreen(),
+    binding: InvestBinding(),
+  ),
+  GetPage(
+    name: Routes.searchScreen,
+    page: () => SearchScreen(),
+    binding: SearchBinding(),
   ),
 ];
