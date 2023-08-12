@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:omega_flutter_app/routes/routes_name.dart';
 import 'package:omega_flutter_app/screens/portfolio/widget/portfolio_card_widget.dart';
 import 'package:omega_flutter_app/utils/color_const.dart';
 
@@ -101,7 +102,9 @@ class PortfolioScreen extends StatelessWidget {
                 width: Get.width * 0.4,
                 height: 50,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.toNamed(Routes.investScreen);
+                  },
                   style: ButtonStyle(
                       elevation: const MaterialStatePropertyAll(0),
                       backgroundColor:

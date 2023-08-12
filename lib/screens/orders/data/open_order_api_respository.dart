@@ -40,6 +40,7 @@ class CloseOrderHistoryApiService {
   Future<CloseOrderResponseModel?> closeOrderHistoryPost(
       OpenOrdersHistoryRequestModel request) async {
     var responseJson;
+
     try {
       final response = await http.post(
         Uri.parse("$baseUrl${ApiEndPoint.closeOrder}"),

@@ -29,7 +29,7 @@ class RadioButtonWidget extends StatelessWidget {
                   height: 30,
                   child: RadioListTile(
                     activeColor: greenColor,
-                    value: 1,
+                    value: 0,
                     groupValue: investController.selectedRadio.value,
                     onChanged: (value) {
                       investController.selectedRadio.value = value!;
@@ -42,7 +42,7 @@ class RadioButtonWidget extends StatelessWidget {
                   height: 30,
                   child: RadioListTile(
                     activeColor: greenColor,
-                    value: 2,
+                    value: 1,
                     groupValue: investController.selectedRadio.value,
                     onChanged: (value) {
                       investController.selectedRadio.value = value!;
@@ -55,7 +55,7 @@ class RadioButtonWidget extends StatelessWidget {
                   height: 30,
                   child: RadioListTile(
                     activeColor: greenColor,
-                    value: 3,
+                    value: 2,
                     groupValue: investController.selectedRadio.value,
                     onChanged: (value) {
                       investController.selectedRadio.value = value!;

@@ -17,6 +17,7 @@ import '../screens/transaction/controller/transaction_binding.dart';
 class Routes {
   static String splashScreen = '/splash_Screen';
   static String getStartedScreen = '/get_started_screen';
+  static String loginScreen = '/login_screen';
   static String homeScreen = '/Home_Screen';
   static String singInScreen = '/Sign_IN_Screen';
   static String transactionScreen = '/Transaction_Screen';
@@ -29,6 +30,10 @@ final getPages = [
       name: Routes.splashScreen,
       page: () => SplashScreen(),
       binding: SplashBinding()),
+  GetPage(
+    name: Routes.loginScreen,
+    page: () => const SignInScreen(),
+  ),
   GetPage(
     name: Routes.getStartedScreen,
     page: () => const GetStartedScreen(),

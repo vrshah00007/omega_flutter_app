@@ -95,7 +95,7 @@ Stack investMoneyDetailStackWidget(
                                   fontFamily: "arial-cufonfonts",
                                 )),
                             Text(
-                                "\$ ${profileScreenController.responseModel.value.profitLoss}",
+                                "\$ ${profileScreenController.responseModel.value.profitLoss ?? "0"}",
                                 style: TextStyle(
                                   fontFamily: "arial-cufonfonts",
                                   color: greenColor,

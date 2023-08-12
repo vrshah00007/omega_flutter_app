@@ -99,7 +99,9 @@ class SignUpWidget extends StatelessWidget {
           //     },
           //   ),
           // )
-          SizedBox(height: 16,),
+          SizedBox(
+            height: 16,
+          ),
           const Text("Add your details to sign up"),
           const SizedBox(
             height: 16,
@@ -108,6 +110,7 @@ class SignUpWidget extends StatelessWidget {
             hintText: "Enter username",
             borderRadius: 8,
             title: "User name",
+            textEditingController: signUpController.userName.value,
           ),
           const SizedBox(
             height: 12,
@@ -116,6 +119,7 @@ class SignUpWidget extends StatelessWidget {
             hintText: "Enter email id",
             borderRadius: 8,
             title: "Email Address",
+            textEditingController: signUpController.email.value,
           ),
           const SizedBox(
             height: 12,
@@ -124,6 +128,7 @@ class SignUpWidget extends StatelessWidget {
             hintText: "Enter mobile number",
             borderRadius: 8,
             title: "Mobile Number",
+            textEditingController: signUpController.mobileNumber.value,
           ),
           const SizedBox(
             height: 12,
@@ -131,6 +136,7 @@ class SignUpWidget extends StatelessWidget {
           CustomTextFormField(
             hintText: "Enter city name",
             borderRadius: 8,
+            textEditingController: signUpController.city.value,
             title: "City",
           ),
           const SizedBox(
@@ -140,6 +146,7 @@ class SignUpWidget extends StatelessWidget {
             hintText: "Enter state name",
             borderRadius: 8,
             title: "State",
+            textEditingController: signUpController.state.value,
           ),
           const SizedBox(
             height: 12,
@@ -148,23 +155,25 @@ class SignUpWidget extends StatelessWidget {
             hintText: "Select Country",
             borderRadius: 8,
             title: "Country",
+            textEditingController: signUpController.country.value,
           ),
           const SizedBox(
             height: 12,
           ),
           CustomTextFormField(
-            hintText: "Select and upload",
+            hintText: "Aadhaar Card",
             borderRadius: 8,
-            title: "Upload Front Aadhaar card",
+            title: "Enter aadhaar Aadhaar card",
+            textEditingController: signUpController.docNo.value,
           ),
-          const SizedBox(
-            height: 12,
-          ),
-          CustomTextFormField(
-            hintText: "Select and upload",
-            borderRadius: 8,
-            title: "Upload backside Aadhaar card",
-          ),
+          // const SizedBox(
+          //   height: 12,
+          // ),
+          // CustomTextFormField(
+          //   hintText: "Select and upload",
+          //   borderRadius: 8,
+          //   title: "Upload backside Aadhaar card",
+          // ),
           const SizedBox(
             height: 12,
           ),
@@ -222,10 +231,7 @@ class SignUpWidget extends StatelessWidget {
                 title: "Sign Up",
                 color: blackButtonColor,
                 clickCallback: () {
-                  Get.to(
-                    () => Dashboard(),
-                    binding: DashboardBinding(),
-                  );
+                  signUpController.signUpAPIService();
                 },
                 textColor: Colors.white),
           ),
@@ -255,7 +261,7 @@ class SignUpWidget extends StatelessWidget {
                           text: "LOG IN",
                           recognizer: TapAndPanGestureRecognizer()
                             ..onTapDown = (details) {
-                              print("lksjdj fkdhgjfgj");
+                              // print("lksjdj fkdhgjfgj");
                             },
                           style: TextStyle(
                             color: blackButtonColor,

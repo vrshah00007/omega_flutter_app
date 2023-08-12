@@ -2,14 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:omega_flutter_app/screens/dashboard/controller/dashboard_controller.dart';
+import 'package:omega_flutter_app/screens/orders/controller/orders_controller.dart';
 import 'package:omega_flutter_app/screens/portfolio/controller/portfolio_controller.dart';
 import 'package:omega_flutter_app/screens/profile/controller/profile_detail_controller.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../routes/routes_name.dart';
 import '../../../utils/custom_widgets/custom_widget.dart';
+import '../../../utils/shared_preference_helper.dart';
 
 Widget customDrawer(DashboardController dashboardController) {
-  GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
+  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+  final dashboardController = Get.find<DashboardController>();
   return Drawer(
     key: scaffoldKey,
     backgroundColor: Colors.white,
@@ -19,18 +23,32 @@ Widget customDrawer(DashboardController dashboardController) {
       child: Column(
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                margin: const EdgeInsets.symmetric(horizontal: 16),
-                decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(
-                      30,
-                    )),
-                height: 50,
-                width: 50,
+              Row(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 16),
+                    decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.circular(
+                          30,
+                        )),
+                    height: 50,
+                    width: 50,
+                  ),
+                  TextWidget16(
+                      text: "Welcome\nBack", fontWeight: FontWeight.bold),
+                ],
               ),
-              TextWidget16(text: "Welcome\nBack", fontWeight: FontWeight.bold),
+              IconButton(
+                  onPressed: () async {
+                    SharedPreferences sharedPreferences =
+                        await SharedPreferences.getInstance();
+                    sharedPreferences.clear();
+                    Get.offAllNamed(Routes.loginScreen);
+                  },
+                  icon: const Icon(Icons.logout_outlined))
             ],
           ),
           const SizedBox(
@@ -64,6 +82,31 @@ Widget customDrawer(DashboardController dashboardController) {
                         Get.find<ProfileDetailController>().getProfileDetail();
                         Get.find<PortfolioController>().getPortfolioDetails();
                         Get.toNamed(Routes.investScreen);
+                      } else if (index == 0) {
+                        // dashboardController.
+                        dashboardController.selectedIcon.value = 0;
+                        dashboardController.controller.animateToPage(0,
+                            duration: const Duration(milliseconds: 200),
+                            curve: Curves.linear);
+                      } else if (index == 1) {
+                        dashboardController.selectedIcon.value = 3;
+                        Get.find<ProfileDetailController>().getProfileDetail();
+                        dashboardController.controller.animateToPage(3,
+                            duration: const Duration(milliseconds: 200),
+                            curve: Curves.linear);
+                      } else if (index == 6) {
+                        dashboardController.selectedIcon.value = 1;
+                        Get.find<PortfolioController>().getPortfolioDetails();
+                        dashboardController.controller.animateToPage(1,
+                            duration: const Duration(milliseconds: 200),
+                            curve: Curves.linear);
+                      } else if (index == 8) {
+                        dashboardController.selectedIcon.value = 2;
+                        Get.find<OrdersController>().closeOrderHistory();
+                        Get.find<OrdersController>().openOrderHistory();
+                        dashboardController.controller.animateToPage(2,
+                            duration: const Duration(milliseconds: 200),
+                            curve: Curves.linear);
                       }
                     },
                     child: Row(
