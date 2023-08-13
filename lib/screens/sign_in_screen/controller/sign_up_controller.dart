@@ -23,21 +23,36 @@ class SignUpController extends GetxController {
   void signUpAPIService() {
     SignUpApiService()
         .loginPost(SignUpRequestModel(
-          userName: userName.value.text,
-          email: email.value.text,
-          bankAccount: bankAccountNumber.value.text,
-          bankName: bankName.value.text,
-          city: city.value.text,
-          country: country.value.text,
-          docNo: docNo.value.text,
-          gender: gender.value.text,
-          ifsc: ifscCode.value.text,
-          mono: mobileNumber.value.text,
-          panCardNo: panCard.value.text,
-          password: password.value.text,
-          state: state.value.text,
-          upiID: upiId.value.text,
-        ))
-        .then((value) {});
+      userName: userName.value.text,
+      email: email.value.text,
+      bankAccount: bankAccountNumber.value.text,
+      bankName: bankName.value.text,
+      city: city.value.text,
+      country: country.value.text,
+      docNo: docNo.value.text,
+      gender: gender.value.text,
+      ifsc: ifscCode.value.text,
+      mono: mobileNumber.value.text,
+      panCardNo: panCard.value.text,
+      password: password.value.text,
+      state: state.value.text,
+      upiID: upiId.value.text,
+    ))
+        .then((value) {
+      userName.value.clear();
+      email.value.clear();
+      bankAccountNumber.value.clear();
+      bankName.value.clear();
+      city.value.clear();
+      country.value.clear();
+      docNo.value.clear();
+      gender.value.clear();
+      ifscCode.value.clear();
+      mobileNumber.value.clear();
+      panCard.value.clear();
+      password.value.clear();
+      state.value.clear();
+      upiId.value.clear();
+    });
   }
 }

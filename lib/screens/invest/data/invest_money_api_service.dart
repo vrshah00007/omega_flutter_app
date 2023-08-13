@@ -54,3 +54,33 @@ class updatWalletImage {
     }
   }
 }
+
+class WIthdrawMoneyAPiService {
+  Future<InvestMoneyResponseModel?> updateMoney(
+      String amount, String type, String id, String upiID) async {
+    var responseJson;
+    try {
+      final response = await http.post(
+        Uri.parse("https://growfxtrade.com/trade_api/withdraw.php"),
+        body: {
+          'amount': amount,
+          'type': type,
+          'id': id,
+          'Upi_Id': upiID,
+        },
+      );
+      // if(response.body[])
+      responseJson = ApiBaseHelper().returnResponse(response);
+      print(responseJson);
+      // updatWalletImage()
+      //     .updateImage(image, responseJson['wallet_transaction_id'].toString());
+      return InvestMoneyResponseModel.fromJson(responseJson);
+    } on SocketException {
+      // Get.toNamed(noInternetScreen);
+      throw FetchDataException('No Internet connection');
+    } catch (e) {
+      print(e);
+    }
+    return null;
+  }
+}

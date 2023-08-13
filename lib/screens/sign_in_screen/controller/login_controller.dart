@@ -39,7 +39,7 @@ class LoginController extends GetxController {
       errorMsg = "Please select the checkbox";
     }
 
-    if (errorMsg != null) {
+    if (errorMsg == null) {
       CustomWidget().customSnackBar(message: errorMsg);
       isLoading(false);
     } else {

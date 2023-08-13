@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:omega_flutter_app/utils/custom_widgets/custom_widget.dart';
+
 import '../../../api_helper/api_end_points.dart';
 import '../../../api_helper/api_exception.dart';
 import '../../../api_helper/api_helper.dart';
@@ -32,6 +34,8 @@ class SignUpApiService {
     // request.bodyFields = ;
     // request.headers.addAll(headers);
     responseJson = ApiBaseHelper().returnResponse(response);
+    CustomWidget()
+        .customToast(SignUpResponseModel.fromJson(responseJson).msg.toString());
     print(response);
     return SignUpResponseModel.fromJson(responseJson);
   }

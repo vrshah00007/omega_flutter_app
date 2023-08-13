@@ -34,6 +34,7 @@ class ConstantsLabels {
   static const labelTotalProfit = " Total Profit";
   static const labelTotalLoss = " Total Loss";
   static const labelInvestMoney = "Invest Money";
+  static const labelWithdrawMoney = "Withdraw Money";
   static const labelChooseOption = "Choose Deposit Option";
   static const labelCrypto = "CRYPTO";
   static const labelUpi = "UPI";

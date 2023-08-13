@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:omega_flutter_app/routes/routes_name.dart';
 import 'package:omega_flutter_app/screens/invest/data/get_upi_api_service.dart';
 import 'package:omega_flutter_app/screens/invest/data/invest_money_api_service.dart';
 
@@ -15,6 +16,7 @@ class InvestController extends GetxController {
   RxBool isChecked = false.obs;
   SharedPreferenceHelper sharedPrefs = SharedPreferenceHelper();
   Rx<TextEditingController> investMoneyFiled = TextEditingController().obs;
+  Rx<TextEditingController> upiid = TextEditingController().obs;
   RxBool isLoading = false.obs;
   String path = '';
 
@@ -53,5 +55,23 @@ class InvestController extends GetxController {
             id,
             path)
         .then((value) {});
+  }
+
+  void withdrawMoney() async {
+    await sharedPrefs.initialize();
+    String id = sharedPrefs.getString(SharedPreferenceKey.userID) ?? "";
+    WIthdrawMoneyAPiService()
+        .updateMoney(
+            investMoneyFiled.value.text,
+            selectedRadio.value == 0
+                ? 'Crypto'
+                : selectedRadio.value == 1
+                    ? 'UPI'
+                    : 'Net Banking',
+            id,
+            upiid.value.text)
+        .then((value) {
+          Get.toNamed(Routes.homeScreen);
+    });
   }
 }

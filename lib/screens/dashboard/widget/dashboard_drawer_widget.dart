@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:omega_flutter_app/screens/dashboard/controller/dashboard_controller.dart';
+import 'package:omega_flutter_app/screens/invest/controller/binding.dart';
+import 'package:omega_flutter_app/screens/invest/view/withdrawal_money_screen.dart';
 import 'package:omega_flutter_app/screens/orders/controller/orders_controller.dart';
 import 'package:omega_flutter_app/screens/portfolio/controller/portfolio_controller.dart';
 import 'package:omega_flutter_app/screens/profile/controller/profile_detail_controller.dart';
@@ -107,6 +109,9 @@ Widget customDrawer(DashboardController dashboardController) {
                         dashboardController.controller.animateToPage(2,
                             duration: const Duration(milliseconds: 200),
                             curve: Curves.linear);
+                      } else if (index == 5) {
+                        InvestBinding().dependencies();
+                        Get.to(() => WithdrawalMoneyScreen());
                       }
                     },
                     child: Row(

@@ -1,28 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:omega_flutter_app/screens/invest/controller/controller.dart';
-import 'package:omega_flutter_app/screens/invest/widget/invest_detail_widget.dart';
+import 'package:omega_flutter_app/screens/invest/view/invest_screen.dart';
+import 'package:omega_flutter_app/screens/invest/widget/invest_stack_widget.dart';
+import 'package:omega_flutter_app/screens/portfolio/controller/portfolio_controller.dart';
 import 'package:omega_flutter_app/screens/profile/controller/profile_detail_controller.dart';
-import 'package:omega_flutter_app/screens/transaction/widget/transaction_card_widget.dart';
+import 'package:omega_flutter_app/screens/profile/widget/profile_detail_card_widget.dart';
 import 'package:omega_flutter_app/utils/color_const.dart';
-import 'package:omega_flutter_app/utils/constants_labels.dart';
-import 'package:omega_flutter_app/utils/custom_widgets/custom_button.dart';
+import 'package:omega_flutter_app/utils/custom_textform_filed.dart';
+import 'package:omega_flutter_app/utils/icon_image_path.dart';
 
-import '../../../utils/custom_widgets/custom_widget.dart';
-import '../../../utils/icon_image_path.dart';
-import '../../portfolio/controller/portfolio_controller.dart';
-import '../../profile/widget/profile_detail_card_widget.dart';
-import '../widget/invest_stack_widget.dart';
+import '../../../utils/constants_labels.dart';
+import '../../../utils/custom_widgets/custom_button.dart';
+import '../controller/controller.dart';
 import '../widget/radio_button_widget.dart';
 
-class InvestScreen extends StatelessWidget {
-  InvestScreen({super.key});
-
+class WithdrawalMoneyScreen extends StatelessWidget {
+  WithdrawalMoneyScreen({Key? key}) : super(key: key);
   final portfolioScreenController = Get.put(PortfolioController());
   final profileScreenController = Get.put(ProfileDetailController());
   final investController = Get.find<InvestController>();
@@ -32,7 +28,7 @@ class InvestScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          ConstantsLabels.labelInvestMoney,
+          ConstantsLabels.labelWithdrawMoney,
           style: TextStyle(color: greyTextColor, fontSize: 18),
         ),
       ),
@@ -144,8 +140,9 @@ class InvestScreen extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: CustomButton(
                         clickCallback: () {
-                          investController.investMoney();
-                          investController.update();
+                          // investController.investMoney();
+                          // investController.update();
+                          buildShowDialog(context);
                         },
                         title: "Submit",
                         radius: 8,
@@ -166,155 +163,22 @@ class InvestScreen extends StatelessWidget {
     );
   }
 
-
-}
-OutlineInputBorder buildOutlineInputBorder() {
-  return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(8),
-      borderSide: BorderSide(color: greenColor, width: 2));
-}
-class ReplacementWidgetInvest extends StatelessWidget {
-  InvestController controller;
-
-  ReplacementWidgetInvest({
-    super.key,
-    required this.controller,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    // var data = controller.getUpiResponseModel.value;
-    return GetBuilder<InvestController>(builder: (controller) {
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            child: Text('Deposit USDT (TETHER) by Scanning'),
-          ),
-          Container(
-            margin: const EdgeInsets.all(10),
-            height: 200,
-            width: double.maxFinite,
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-                border: Border.all(
-                  color: greenColor,
-                ),
-                borderRadius: BorderRadius.circular(10)),
-            child: Image.network(
-                "https://growfxtrade.com/${controller.getUpiResponseModel.value.image}",
-                errorBuilder: (context, error, stackTrace) {
-              return const SizedBox(
-                height: 200,
-              );
-            }, fit: BoxFit.fitHeight),
-          ),
-          InvestDetailWidget(
-            leadingTitle: 'UPI',
-            trailingTitle: controller.getUpiResponseModel.value.upi,
-          ),
-          InvestDetailWidget(
-            leadingTitle: 'Bank Name',
-            trailingTitle: controller.getUpiResponseModel.value.bankName,
-          ),
-          InvestDetailWidget(
-            leadingTitle: 'Bank Account Number',
-            trailingTitle: controller.getUpiResponseModel.value.bankAcNumber,
-          ),
-          InvestDetailWidget(
-            leadingTitle: 'IFSC',
-            trailingTitle: controller.getUpiResponseModel.value.ifscCode,
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('*Important ',
-                    style: TextStyle(color: greyTextColor, fontSize: 12)),
-                Text('This is BEP20 deposit address type.s',
-                    style: TextStyle(color: greyTextColor, fontSize: 12)),
-                Text('Please deposit only USDT to this address',
-                    style: TextStyle(color: greyTextColor, fontSize: 12)),
-              ],
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          SizedBox(
-            height: 50,
-            width: Get.width,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: CustomButton(
-                clickCallback: () {
-                  buildShowDialog(context);
-                },
-                title: "Submit",
-                radius: 8,
-                color: yellowButtonColor,
-                textColor: Colors.black,
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 50,
-          )
-        ],
-      );
-    });
-  }
-
   Future<dynamic> buildShowDialog(BuildContext context) {
     return showDialog(
       context: context,
       builder: (ctx) => CupertinoAlertDialog(
         // title: const Text("Alert Dialog Box"),
         content: SizedBox(
-          height: 180,
+          // height: 180,
           child: Column(
             children: [
-              const Text(
-                'Upload Screenshot',
-                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
-              ),
-              const Divider(),
-              const SizedBox(
-                height: 10,
-              ),
-              GestureDetector(
-                onTap: () async {
-                  final ImagePicker picker = ImagePicker();
-// Pick an image.
-                  final XFile? image =
-                      await picker.pickImage(source: ImageSource.gallery);
-                  controller.path = image?.path ?? "";
-                },
-                child: SvgPicture.asset(
-                  'assets/home_screen_icons/🦆 icon _camera_.svg',
-                  height: 50,
-                  width: 50,
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
+              const Text("Withdraw request sent"),
               const Divider(thickness: 2),
               TextButton(
                   onPressed: () {
-                    if (controller.path != "") {
-                      controller.submitAndClaim();
-                    } else {
-                      CustomWidget().customSnackBar(
-                          message: 'Please select the screenshot');
-                    }
+                    investController.withdrawMoney();
                   },
-                  child: const Text('SUBMIT & CLAIM'))
+                  child: const Text('OKAy'))
             ],
           ),
         ),
