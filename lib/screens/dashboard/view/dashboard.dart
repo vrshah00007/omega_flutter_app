@@ -4,6 +4,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:omega_flutter_app/routes/routes_name.dart';
 import 'package:omega_flutter_app/screens/dashboard/controller/dashboard_controller.dart';
+import 'package:omega_flutter_app/screens/dashboard/data/watch_list_api_request.dart';
+import 'package:omega_flutter_app/screens/portfolio/controller/portfolio_controller.dart';
 import 'package:omega_flutter_app/utils/color_const.dart';
 
 import '../widget/bottom_navigation_bar.dart';
@@ -14,7 +16,9 @@ class Dashboard extends StatelessWidget {
   Dashboard({Key? key}) : super(key: key);
   final dashboardController = Get.find<DashboardController>();
 
+
   // TabController tabController = TabController(length: 4, vsync: );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +40,9 @@ class Dashboard extends StatelessWidget {
             padding: const EdgeInsets.only(right: 20),
             child: GestureDetector(
               onTap: () {
-                Get.toNamed(Routes.searchScreen);
+                Get.toNamed(Routes.searchScreen)?.then((value) {
+                  CurrencyTradeApiRequestQuote().get();
+                });
               },
               child: SvgPicture.asset(
                   "assets/home_screen_icons/🦆 icon _search normal 1_.svg",

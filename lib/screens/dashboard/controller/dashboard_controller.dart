@@ -1,15 +1,29 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:omega_flutter_app/screens/dashboard/data/watch_list_api_request.dart';
+import 'package:omega_flutter_app/screens/orders/controller/orders_controller.dart';
 
 import '../../../utils/constants_labels.dart';
+import '../../../utils/shared_preference_helper.dart';
+import '../../../utils/shared_preference_key.dart';
+import '../../portfolio/controller/portfolio_controller.dart';
+import '../model/currency_model_class.dart';
 
 class DashboardController extends GetxController {
   RxInt selectedIcon = 0.obs;
-
+  SharedPreferenceHelper sharedPrefs = SharedPreferenceHelper();
+  final portfolioController = Get.put(PortfolioController());
   final PageController controller = PageController();
-
-
+// RxList<ApiForgeQuotesResponseModel> modelClass = <ApiForgeQuotesResponseModel>[].obs;
+  ApiForgeQuotesResponseModel modelClass = ApiForgeQuotesResponseModel();
+@override
+  void onInit() {
+    // TODO: implement onInit
+    super.onInit();
+    apiRequest();
+    portfolioController.getPortfolioDetails();
+  }
 
   List drawerItemList = [
     "Watchlist",
@@ -41,4 +55,30 @@ class DashboardController extends GetxController {
     ConstantsLabels.orderLabel,
     ConstantsLabels.profileLabel,
   ];
+
+  void apiRequest(){
+    CurrencyTradeApiRequest().get().then((value) {
+      // print(value)
+      CurrencyTradeApiRequestQuote().get().then((value) {
+
+      print(modelClass);
+      });
+    });
+  }
+
+  void buy(String currency_id,String amount,String ask,String total)async{
+    await sharedPrefs.initialize();
+    String id = sharedPrefs.getString(SharedPreferenceKey.userID) ?? "";
+    BuySellApi().buySellApiService(id, "buy", currency_id, amount, ask, total).then((value) {
+      // print(object);
+    });
+  }
+  void sell(String currency_id,String amount,String ask,String total)async{
+    await sharedPrefs.initialize();
+    String id = sharedPrefs.getString(SharedPreferenceKey.userID) ?? "";
+    BuySellApi().buySellApiService(id, "sell", currency_id, amount, ask, total).then((value) {
+      // print(object);
+      Get.find<OrdersController>().openOrderHistory();
+    });
+  }
 }

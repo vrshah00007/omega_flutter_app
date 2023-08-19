@@ -58,3 +58,9 @@ class TextWidget16 extends StatelessWidget {
     return Text(text, style: TextStyle(fontSize: 16, fontWeight: fontWeight));
   }
 }
+
+List<dynamic> listOfCurrency=[];
+List<dynamic> listOfCurrencySearch=[];
+String addCurrency ="";
+RxList<dynamic> model=[].obs;
+String availableBalance = "";

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:omega_flutter_app/screens/dashboard/controller/dashboard_controller.dart';
 
 import 'package:omega_flutter_app/utils/color_const.dart';
 import 'package:omega_flutter_app/utils/constants_labels.dart';
@@ -78,6 +79,13 @@ class OpenOrdersTabViewWidget extends StatelessWidget {
                             title: ConstantsLabels.labelSell,
                             color: redColor,
                             radius: 12,
+                            clickCallback: () {
+                              Get.find<DashboardController>().sell(
+                                  openOrder?.currencyId ?? "",
+                                  openOrder?.amount ?? '',
+                                  openOrder?.ask ?? '',
+                                  openOrder?.total ?? '');
+                            },
                             textColor: whiteColor),
                       ))
                 ],

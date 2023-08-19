@@ -11,10 +11,11 @@ class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      initialIndex: 0,
+      initialIndex: 1,
       length: 2,
       child: Scaffold(
         appBar: AppBar(
+          // automaticallyImplyLeading: false,
           leading: IconButton(
               onPressed: () {
                 Get.back();

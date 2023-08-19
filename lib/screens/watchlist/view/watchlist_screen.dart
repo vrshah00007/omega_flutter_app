@@ -33,7 +33,7 @@ class WatchlistScreen extends StatelessWidget {
             ),
           ),
         ),
-        body: const TabBarView(
+        body:  TabBarView(
           physics: NeverScrollableScrollPhysics(),
           children: [
             WatchlistTabBarView(),

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:omega_flutter_app/routes/routes_name.dart';
-import 'package:omega_flutter_app/screens/dashboard/controller/dashboard_controller.dart';
-import 'package:omega_flutter_app/screens/dashboard/view/dashboard.dart';
+
 
 import 'screens/splash/binding/splash_binding.dart';
 import 'screens/splash/view/splash.dart';
