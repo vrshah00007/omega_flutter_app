@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
+import 'package:omega_flutter_app/screens/transaction/model/local_database_model.dart';
 import 'package:omega_flutter_app/utils/color_const.dart';
+
 final DateFormat formatter = DateFormat('dd-MM-yyyy-HH:mm');
+
 class CustomWidget {
   customSnackBar({String? message}) {
     return Get.rawSnackbar(
@@ -42,7 +46,6 @@ class CommonLoading extends StatelessWidget {
   }
 }
 
-
 class TextWidget16 extends StatelessWidget {
   String text;
   FontWeight fontWeight;
@@ -59,8 +62,13 @@ class TextWidget16 extends StatelessWidget {
   }
 }
 
-List<dynamic> listOfCurrency=[];
-List<dynamic> listOfCurrencySearch=[];
-String addCurrency ="";
-RxList<dynamic> model=[].obs;
+List<dynamic> listOfCurrency = [];
+List<WatchListData> listOfCurrencySearch = [];
+List<dynamic> listOfCurrencySearchNew = [];
+String addCurrency = "";
+RxList<dynamic> model = [].obs;
 String availableBalance = "";
+Box<WatchListData>? boxLocalDatabase;
+RxBool isLoading = false.obs;
+
+Box<WatchListData>? boxLocalDatabaseSearch; //

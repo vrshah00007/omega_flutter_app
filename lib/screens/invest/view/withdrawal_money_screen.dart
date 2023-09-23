@@ -36,7 +36,7 @@ class WithdrawalMoneyScreen extends StatelessWidget {
         return ListView(
           children: [
             investMoneyDetailStackWidget(
-                portfolioScreenController, profileScreenController),
+                portfolioScreenController, profileScreenController,investController),
             Visibility(
               visible: investController.isQrScreen.value ? false : true,
               replacement: Obx(() {
@@ -105,13 +105,13 @@ class WithdrawalMoneyScreen extends StatelessWidget {
                             errorBorder: buildOutlineInputBorder(),
                             enabledBorder: buildOutlineInputBorder(),
                             disabledBorder: buildOutlineInputBorder(),
-                            labelText: 'Invest Money',
+                            labelText: 'Withdraw Money',
                             labelStyle: const TextStyle(color: Colors.black),
                           )),
                     ),
                   ),
                   const SizedBox(
-                    height: 50,
+                    height: 16,
                   ),
                   Container(
                     height: 50,
@@ -165,20 +165,22 @@ class WithdrawalMoneyScreen extends StatelessWidget {
 
   Future<dynamic> buildShowDialog(BuildContext context) {
     return showDialog(
-      context: context,
+      context: context,barrierDismissible: false,
+
       builder: (ctx) => CupertinoAlertDialog(
+
         // title: const Text("Alert Dialog Box"),
         content: SizedBox(
-          // height: 180,
+          // height: 120,
           child: Column(
             children: [
-              const Text("Withdraw request sent"),
+              const Text("WITHDRAW REQUESTED SUCCESSFULLY",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 16),),
               const Divider(thickness: 2),
               TextButton(
                   onPressed: () {
                     investController.withdrawMoney();
                   },
-                  child: const Text('OKAy'))
+                  child: const Text('Ok',style: TextStyle(color: Colors.black,fontSize: 16,fontWeight: FontWeight.bold),))
             ],
           ),
         ),

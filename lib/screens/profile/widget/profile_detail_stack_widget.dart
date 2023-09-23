@@ -9,11 +9,11 @@ Stack profileDetailStackWidget(ProfileDetailModelResponse model) {
   return Stack(
     children: [
       Container(
-        height: Get.height * 0.3,
+        height: Get.height * 0.27,
         width: Get.width,
         decoration: const BoxDecoration(
           color: Colors.white,
-        ),
+        )
       ),
       Positioned(
         top: 50,
@@ -27,29 +27,40 @@ Stack profileDetailStackWidget(ProfileDetailModelResponse model) {
       ),
       Positioned(
         top: 20,
-        left: 150,
-        right: 150,
-        child: Container(
-          height: 60,
-          width: 60,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            border: Border.all(color: blueColor, width: 2),
-            borderRadius: BorderRadius.circular(60),
+        // left: 100,
+        // right: 100,
+        child: SizedBox(
+          // color: Colors.black,
+          width: Get.width,
+          child: Center(
+            child: Container(
+              height: 60,
+              width: 60,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(color: blueColor, width: 2),
+                borderRadius: BorderRadius.circular(60),
+              ),
+              alignment: Alignment.center,
+              child: const Text("VK",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+            ),
           ),
-          alignment: Alignment.center,
-          child: const Text("VK",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
         ),
       ),
       Positioned(
           top: 90,
-          left: 120,
-          right: 120,
-          child: Text(
-            model.email ?? "",
-            textAlign: TextAlign.center,
-            style: const TextStyle(color: Colors.black),
+          // left: 100,
+          // right: 100,
+          child: SizedBox(
+            width: Get.width,
+            child: Center(
+              child: Text(
+                model.email ?? "",
+                textAlign: TextAlign.center,
+                style: const TextStyle(color: Colors.black),
+              ),
+            ),
           )),
       Positioned(
         top: 151,
@@ -60,7 +71,7 @@ Stack profileDetailStackWidget(ProfileDetailModelResponse model) {
             height: 60,
             decoration: BoxDecoration(
                 color: iconGreyColor.withOpacity(0.4),
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(8),
                     bottomRight: Radius.circular(8)))),
       ),
@@ -70,7 +81,7 @@ Stack profileDetailStackWidget(ProfileDetailModelResponse model) {
         right: 20,
         child: Stack(
           children: [
-            Container(
+            SizedBox(
               width: Get.width,
               height: 80,
               child: Material(

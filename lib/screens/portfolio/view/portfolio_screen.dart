@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:omega_flutter_app/routes/routes_name.dart';
+import 'package:omega_flutter_app/screens/invest/controller/binding.dart';
 import 'package:omega_flutter_app/screens/portfolio/widget/portfolio_card_widget.dart';
 import 'package:omega_flutter_app/utils/color_const.dart';
 
 import '../../../utils/constants_labels.dart';
+import '../../invest/view/withdrawal_money_screen.dart';
 import '../controller/portfolio_controller.dart';
 import '../widget/portfolio_stack_widget.dart';
 
@@ -23,20 +25,33 @@ class PortfolioScreen extends StatelessWidget {
         children: [
           PortfolioStackWidget(
               portfolioScreenController: portfolioScreenController, data: data),
-          PortfolioCard(
-              title: ConstantsLabels.labelTotalForexBuy,
-              subTitle: "\$ ${data.totalBuy.toString()}" ?? ""),
+          SizedBox(
+            height: 26,
+          ),
+          PortfolioDetailCard(
+            leadingTitle: ConstantsLabels.labelTotalForexBuy,
+            trailingTitle: "\$ ${data.totalBuy.toString()}" ?? "",
+          ),
+          // TransactionCardWidget(
+          //   leadingTitle: ConstantsLabels.labelTotalForexBuy,
+          //   trailingTitle: "\$ ${data.totalBuy.toString()}" ?? "",
+          // ),
           const SizedBox(
             height: 6,
           ),
-          PortfolioCard(
-              title: ConstantsLabels.labelWithdrawal,
-              subTitle: "\$ ${data.withdraw.toString()}" ?? ""),
-          const SizedBox(
-            height: 6,
+          PortfolioDetailCard(
+            leadingTitle: ConstantsLabels.labelWithdrawal,
+            trailingTitle: "\$ ${data.withdraw.toString()}" ?? "",
           ),
+          // TransactionCardWidget(
+          //   leadingTitle: ConstantsLabels.labelWithdrawal,
+          //   trailingTitle: "\$ ${data.withdraw.toString()}" ?? "",
+          // ),
+          // const SizedBox(
+          //   height: 6,
+          // ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 8),
             child: Material(
               elevation: 1,
               child: Container(
@@ -65,7 +80,7 @@ class PortfolioScreen extends StatelessWidget {
             height: 10,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 8),
             child: Material(
               elevation: 1,
               child: Container(
@@ -127,7 +142,10 @@ class PortfolioScreen extends StatelessWidget {
                 width: Get.width * 0.4,
                 height: 50,
                 child: OutlinedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      InvestBinding().dependencies();
+                      Get.to(() => WithdrawalMoneyScreen());
+                    },
                     style: OutlinedButton.styleFrom(
                         side: BorderSide(color: blueColor),
                         shape: RoundedRectangleBorder(
@@ -144,5 +162,58 @@ class PortfolioScreen extends StatelessWidget {
         ],
       );
     });
+  }
+}
+
+class TransactionCardWidget extends StatelessWidget {
+  String? leadingTitle;
+  String? trailingTitle;
+
+  TransactionCardWidget({
+    super.key,
+    this.leadingTitle,
+    this.trailingTitle,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+      child: Stack(
+        children: [
+          Positioned(
+            child: Container(
+              height: 60,
+              width: Get.width,
+              decoration: BoxDecoration(
+                color: Colors.grey,
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(left: 1, right: 1),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            height: 59,
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(leadingTitle ?? ""),
+                  Text(
+                      ""
+                      "${trailingTitle ?? ""}",
+                      style: TextStyle(
+                          color: greenColor,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700)),
+                ]),
+          ),
+        ],
+      ),
+    );
   }
 }

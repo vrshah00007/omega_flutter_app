@@ -19,6 +19,7 @@ class InvestController extends GetxController {
   Rx<TextEditingController> upiid = TextEditingController().obs;
   RxBool isLoading = false.obs;
   String path = '';
+  RxInt isSubmitClicked = 0.obs;
 
   void investMoney() async {
     await sharedPrefs.initialize();
@@ -31,11 +32,13 @@ class InvestController extends GetxController {
     if (errorMsg != null) {
       CustomWidget().customSnackBar(message: errorMsg);
       isLoading(false);
+
     } else {
       print(selectedRadio.value);
       isQrScreen.value = true;
       GetUPIApiService().getUpiDetailAPi().then((value) {
         print(getUpiResponseModel.value.image);
+        isSubmitClicked.value = 1;
         update();
       });
     }
@@ -71,7 +74,9 @@ class InvestController extends GetxController {
             id,
             upiid.value.text)
         .then((value) {
-          Get.toNamed(Routes.homeScreen);
+      // Get.toNamed(Routes.homeScreen);
+      Get.back();
+      investMoneyFiled.value.clear();
     });
   }
 }

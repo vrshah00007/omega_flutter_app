@@ -38,27 +38,27 @@ class TransactionScreen extends StatelessWidget {
               ),
               TransactionCardWidget(
                 trailingTitle: transactionController
-                        .transactionList.value.invest
+                        .transactionList.value.withdrawal
                         .toString() ??
                     "",
                 leadingTitle: ConstantsLabels.labelTotalWithdrawal,
               ),
               TransactionCardWidget(
                 trailingTitle: transactionController
-                        .transactionList.value.invest
+                        .transactionList.value.profit
                         .toString() ??
                     "",
                 leadingTitle: ConstantsLabels.labelTotalProfit,
               ),
               TransactionCardWidget(
                 trailingTitle: transactionController
-                        .transactionList.value.invest
+                        .transactionList.value.loss
                         .toString() ??
                     "",
                 leadingTitle: ConstantsLabels.labelTotalLoss,
               ),
               const SizedBox(
-                height: 50,
+                height: 20,
               ),
               TransactionHistoryStackWidget(transactionController: transactionController, formatter: formatter),
             ],

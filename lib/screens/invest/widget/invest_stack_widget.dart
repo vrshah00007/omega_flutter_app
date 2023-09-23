@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:omega_flutter_app/screens/invest/controller/controller.dart';
 import 'package:omega_flutter_app/screens/profile/controller/profile_detail_controller.dart';
 import 'package:omega_flutter_app/utils/color_const.dart';
 
 import '../../../utils/constants_labels.dart';
-import '../../../utils/icon_image_path.dart';
+
 import '../../portfolio/controller/portfolio_controller.dart';
-import '../../profile/widget/profile_detail_card_widget.dart';
 
 Stack investMoneyDetailStackWidget(
     PortfolioController portfolioScreenController,
-    ProfileDetailController profileScreenController) {
+    ProfileDetailController profileScreenController,
+    InvestController investController) {
   return Stack(
     children: [
       Container(
-        height: Get.height * 0.28,
+        height: Get.height * 0.25,
         width: Get.width,
         decoration: const BoxDecoration(
           color: Colors.white,
@@ -33,20 +34,38 @@ Stack investMoneyDetailStackWidget(
       Obx(() {
         return Positioned(
             top: 70,
-            left: 120,
-            right: 120,
-            child: Row(
-              children: [
-                const Text(
-                  ConstantsLabels.totalProfitLoss,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.black),
-                ),
-                Text(
-                  "\$ ${portfolioScreenController.responseModel.value.profitLoss}",
-                  style: TextStyle(color: greenColor),
-                )
-              ],
+            // right: investController.isQrScreen.value? 60:140,
+            // left: investController.isQrScreen.value? 60:140,
+            child: SizedBox(
+              // color: Colors.black,
+              width: Get.width,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Center(
+                    child: investController.isQrScreen.value
+                        ? const Text('DEPOSITED VIA ')
+                        : const Text(
+                            ConstantsLabels.totalProfitLoss,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(color: Colors.black),
+                          ),
+                  ),
+                  investController.isQrScreen.value
+                      ? Text(
+                          investController.selectedRadio.value == 0
+                              ? "CRYPTO"
+                              : investController.selectedRadio.value == 1
+                                  ? "UPI"
+                                  : "NET BANKING",
+                          style: const TextStyle(fontWeight: FontWeight.bold),
+                        )
+                      : Text(
+                          "\$ ${portfolioScreenController.responseModel.value.profitLoss}",
+                          style: TextStyle(color: greenColor),
+                        )
+                ],
+              ),
             ));
       }),
       Positioned(
@@ -68,7 +87,7 @@ Stack investMoneyDetailStackWidget(
         right: 20,
         child: Stack(
           children: [
-            Container(
+            SizedBox(
               width: Get.width,
               height: 80,
               child: Material(
@@ -123,7 +142,7 @@ Stack investMoneyDetailStackWidget(
                                   fontFamily: "arial-cufonfonts",
                                 )),
                             Text(
-                                "\$ ${profileScreenController.responseModel.value.amount}",
+                                "\$ ${profileScreenController.responseModel.value.walletData?.amountt}",
                                 style: TextStyle(
                                     fontFamily: "arial-cufonfonts",
                                     color: greenColor,

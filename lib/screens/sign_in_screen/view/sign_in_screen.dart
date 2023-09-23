@@ -11,7 +11,7 @@ class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      initialIndex: 1,
+      initialIndex: 0,
       length: 2,
       child: Scaffold(
         appBar: AppBar(
@@ -31,15 +31,15 @@ class SignInScreen extends StatelessWidget {
 
             indicatorSize: TabBarIndicatorSize.tab,
             tabs: const [
-              Tab(child: Text("SIGN UP")),
               Tab(child: Text("LOG IN")),
+              Tab(child: Text("SIGN UP")),
             ],
           ),
         ),
         body: TabBarView(
           children: <Widget>[
-            SignUpWidget(),
             LoginWidget(),
+            SignUpWidget(),
           ],
         ),
       ),

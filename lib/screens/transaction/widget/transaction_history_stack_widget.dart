@@ -89,7 +89,7 @@ class TransactionHistoryStackWidget extends StatelessWidget {
                               DateTime.parse(transactionData?.date ?? "")),
                           style: TextStyle(fontWeight: FontWeight.w400)),
                       Text(transactionData?.currencyName ?? ""),
-                      Text("\$ ${transactionData?.amount ?? " "}")
+                      Text("\$ ${double.parse(transactionData?.amount ?? "0").toStringAsFixed(2) ?? " "}")
                     ],
                   ),
                 );

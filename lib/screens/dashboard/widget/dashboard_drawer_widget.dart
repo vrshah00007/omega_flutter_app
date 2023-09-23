@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
 import 'package:omega_flutter_app/screens/dashboard/controller/dashboard_controller.dart';
 import 'package:omega_flutter_app/screens/invest/controller/binding.dart';
 import 'package:omega_flutter_app/screens/invest/view/withdrawal_money_screen.dart';
 import 'package:omega_flutter_app/screens/orders/controller/orders_controller.dart';
 import 'package:omega_flutter_app/screens/portfolio/controller/portfolio_controller.dart';
 import 'package:omega_flutter_app/screens/profile/controller/profile_detail_controller.dart';
+import 'package:omega_flutter_app/screens/transaction/model/local_database_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../routes/routes_name.dart';
@@ -48,6 +50,10 @@ Widget customDrawer(DashboardController dashboardController) {
                     SharedPreferences sharedPreferences =
                         await SharedPreferences.getInstance();
                     sharedPreferences.clear();
+                    // boxLocalDatabase.values.map((e) => null)
+                    boxLocalDatabase?.clear();
+                    // Hive.box('currencyDataBody').delete(key);
+
                     Get.offAllNamed(Routes.loginScreen);
                   },
                   icon: const Icon(Icons.logout_outlined))

@@ -62,7 +62,7 @@ class OpenOrdersTabViewWidget extends StatelessWidget {
                             ),
                             OpenOrderListTile(
                               title: ConstantsLabels.labelOrderAmount,
-                              subTitle: "\$ ${openOrder?.amountt}",
+                              subTitle: "\$ ${openOrder?.total}",
                             ),
                           ],
                         ),
@@ -80,11 +80,11 @@ class OpenOrdersTabViewWidget extends StatelessWidget {
                             color: redColor,
                             radius: 12,
                             clickCallback: () {
-                              Get.find<DashboardController>().sell(
-                                  openOrder?.currencyId ?? "",
-                                  openOrder?.amount ?? '',
-                                  openOrder?.ask ?? '',
-                                  openOrder?.total ?? '');
+                              print(openOrder?.orderId);
+                              Get.find<DashboardController>().sellOrderApi(
+                                  openOrder!.buySellId.toString(),
+                                  openOrder.qty.toString());
+
                             },
                             textColor: whiteColor),
                       ))

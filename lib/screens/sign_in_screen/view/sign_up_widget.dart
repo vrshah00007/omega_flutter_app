@@ -179,6 +179,7 @@ class SignUpWidget extends StatelessWidget {
           ),
           CustomTextFormField(
             hintText: "Enter PAN card number",
+            textEditingController: signUpController.panCard.value,
             borderRadius: 8,
             title: "PAN Card",
           ),
@@ -189,6 +190,7 @@ class SignUpWidget extends StatelessWidget {
             hintText: "Bank Name",
             borderRadius: 8,
             title: "Enter bank name",
+            textEditingController: signUpController.bankName.value,
           ),
           const SizedBox(
             height: 12,
@@ -197,6 +199,7 @@ class SignUpWidget extends StatelessWidget {
             hintText: "Bank Account No.",
             borderRadius: 8,
             title: "Enter bank account number",
+            textEditingController: signUpController.bankAccountNumber.value,
           ),
           const SizedBox(
             height: 12,
@@ -205,6 +208,7 @@ class SignUpWidget extends StatelessWidget {
             hintText: "Enter IFSC code",
             borderRadius: 8,
             title: "IFSC Code",
+            textEditingController: signUpController.ifscCode.value,
           ),
           const SizedBox(
             height: 12,
@@ -213,6 +217,7 @@ class SignUpWidget extends StatelessWidget {
             hintText: "Enter password",
             borderRadius: 8,
             title: "Password",
+            textEditingController: signUpController.password.value,
           ),
           const SizedBox(
             height: 12,

@@ -35,7 +35,7 @@ class LoginWidget extends StatelessWidget {
             borderRadius: 16,
             textEditingController: loginController.passwordController.value,
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
           Row(
@@ -80,6 +80,7 @@ class LoginWidget extends StatelessWidget {
                     : CustomButton(
                         clickCallback: () {
                           loginController.loginCheck();
+
                         },
                         title: "Login",
                         color: yellowButtonColor,

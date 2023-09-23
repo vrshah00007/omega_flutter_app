@@ -14,12 +14,14 @@ class ProfileDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Obx(() {
         var model = profileController.responseModel.value;
         return ListView(
           physics: const ClampingScrollPhysics(),
           children: [
             profileDetailStackWidget(model),
+
             ProfileDetailCard(
               leading: ImageConstants.iconUser,
               title: ConstantsLabels.nameLabel,

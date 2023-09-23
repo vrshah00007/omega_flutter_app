@@ -21,7 +21,7 @@ class PortfolioStackWidget extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          height: Get.height * 0.30,
+          height: Get.height * 0.27,
           width: Get.width,
           decoration: const BoxDecoration(
             color: Colors.white,
@@ -39,20 +39,25 @@ class PortfolioStackWidget extends StatelessWidget {
         ),
         Positioned(
           top: 80,
-          left: 140,
-          right: 100,
-          child: RichText(
-            text: TextSpan(
-                text: ConstantsLabels.totalProfitLoss,
-                style: const TextStyle(color: Colors.black),
-                children: [
-                  TextSpan(
-                      text:
-                          "${portfolioScreenController.responseModel.value.profitLoss}",
-                      style: TextStyle(
-                        color: greenColor,
-                      ))
-                ]),
+          // left: 160,
+          // right: 100,
+          child: Container(
+            // color: Colors.black,
+            width: Get.width,
+            alignment: Alignment.center,
+            child: RichText(
+              text: TextSpan(
+                  text: ConstantsLabels.totalProfitLoss,
+                  style: const TextStyle(color: Colors.black),
+                  children: [
+                    TextSpan(
+                        text:
+                            "${portfolioScreenController.responseModel.value.profitLoss}",
+                        style: TextStyle(
+                          color: greenColor,
+                        ))
+                  ]),
+            ),
           ),
         ),
         Positioned(
@@ -70,14 +75,15 @@ class PortfolioStackWidget extends StatelessWidget {
         ),
         Positioned(
           top: 120,
-          left: 20,
-          right: 20,
+          left: 19,
+          right: 19,
           child: SizedBox(
             width: Get.width,
             height: 80,
             child: Material(
               elevation: 2,
               borderRadius: BorderRadius.circular(8),
+              color: Colors.white,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 // mainAxisAlignment: MainAxisAlignment.spaceEvenly,

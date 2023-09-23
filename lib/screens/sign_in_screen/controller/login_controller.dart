@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:omega_flutter_app/routes/routes_name.dart';
+import 'package:omega_flutter_app/screens/dashboard/data/watch_list_api_request.dart';
 import 'package:omega_flutter_app/utils/shared_preference_key.dart';
 
 import '../../../utils/custom_widgets/custom_widget.dart';
@@ -33,13 +34,11 @@ class LoginController extends GetxController {
       errorMsg = "Please enter a valid email";
     } else if (passwordController.value.text.trim().isEmpty) {
       errorMsg = "Please enter your password";
-    } else if (passwordController.value.text.trim().length < 6) {
-      errorMsg = "Password cannot be less than 6 character";
     } else if (!isChecked.value) {
       errorMsg = "Please select the checkbox";
     }
 
-    if (errorMsg == null) {
+    if (errorMsg != null) {
       CustomWidget().customSnackBar(message: errorMsg);
       isLoading(false);
     } else {
@@ -56,7 +55,8 @@ class LoginController extends GetxController {
             sharedPrefs.saveString(
                 SharedPreferenceKey.userID, value.user?.userId ?? "");
             loginResponse.value = value;
-            Get.toNamed(Routes.homeScreen);
+            CurrencyTradeApiRequestQuote().get().then((value) {});
+            Get.offAllNamed(Routes.homeScreen);
           } else {
             isLoading(false);
             CustomWidget().customToast(value.msg ?? "");
