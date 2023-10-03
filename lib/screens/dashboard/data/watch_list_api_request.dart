@@ -114,7 +114,7 @@ class BuySellApi {
       String amount, String ask, String total) async {
     var headers = {'Content-Type': 'application/x-www-form-urlencoded'};
     var request = http.Request(
-        'POST', Uri.parse('https://growfxtrade.com/trade_api/buy-sell.php'));
+        'POST', Uri.parse('https://omegafxtrade.com/trade_api/buy-sell.php'));
     request.bodyFields = {
       'buy_sell': buySell,
       'currency_id': currency_id,
@@ -148,7 +148,7 @@ class SellOrderApi {
   Future<void> sellApi(String id, String qty) async {
     var headers = {'Content-Type': 'application/x-www-form-urlencoded'};
     var request = http.Request(
-        'POST', Uri.parse('https://growfxtrade.com/trade_api/sell.php'));
+        'POST', Uri.parse('https://omegafxtrade.com/trade_api/sell.php'));
     request.bodyFields = {
       'id': id,
       'qty': qty,

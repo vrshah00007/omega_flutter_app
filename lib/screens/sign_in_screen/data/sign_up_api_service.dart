@@ -14,7 +14,7 @@ class SignUpApiService {
     var responseJson;
     // var headers = {'Content-Type': 'application/x-www-form-urlencoded'};
     final response = await http.post(
-        Uri.parse('https://growfxtrade.com/trade_api/registers.php'),
+        Uri.parse('https://omegafxtrade.com/trade_api/registers.php'),
         body: {
           'user_name': requestModel.userName ?? "",
           'email': requestModel.email ?? "",

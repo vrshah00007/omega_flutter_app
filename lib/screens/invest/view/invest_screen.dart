@@ -243,7 +243,7 @@ class ReplacementWidgetInvest extends StatelessWidget {
                       ),
                       borderRadius: BorderRadius.circular(10)),
                   child: Image.network(
-                      "https://growfxtrade.com/${controller.getUpiResponseModel.value.image}",
+                      "https://omegafxtrade.com/${controller.getUpiResponseModel.value.image}",
                       errorBuilder: (context, error, stackTrace) {
                     return const SizedBox(
                       height: 200,

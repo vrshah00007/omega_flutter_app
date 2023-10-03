@@ -10,7 +10,7 @@ class ImageConstants {
   static const String iconIFSCCOde =
       "assets/profile_detail_icon/🦆 icon _receipt_.svg";
   static const String iconPanCard =
-      "assets/profile_detail_icon/🦆 icon _user square_.svg";
+      "assets/splash/cardpos.svg";
   static const String iconAdhaarCard =
       "assets/profile_detail_icon/🦆 icon _document text_.svg";
 }

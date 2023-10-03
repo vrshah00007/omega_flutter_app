@@ -9,12 +9,11 @@ Stack profileDetailStackWidget(ProfileDetailModelResponse model) {
   return Stack(
     children: [
       Container(
-        height: Get.height * 0.27,
-        width: Get.width,
-        decoration: const BoxDecoration(
-          color: Colors.white,
-        )
-      ),
+          height: Get.height * 0.27,
+          width: Get.width,
+          decoration: const BoxDecoration(
+            color: Colors.white,
+          )),
       Positioned(
         top: 50,
         child: Container(
@@ -26,7 +25,7 @@ Stack profileDetailStackWidget(ProfileDetailModelResponse model) {
         ),
       ),
       Positioned(
-        top: 20,
+        top: 40,
         // left: 100,
         // right: 100,
         child: SizedBox(
@@ -43,13 +42,13 @@ Stack profileDetailStackWidget(ProfileDetailModelResponse model) {
               ),
               alignment: Alignment.center,
               child: const Text("VK",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900)),
             ),
           ),
         ),
       ),
       Positioned(
-          top: 90,
+          top: 100,
           // left: 100,
           // right: 100,
           child: SizedBox(
@@ -94,7 +93,7 @@ Stack profileDetailStackWidget(ProfileDetailModelResponse model) {
                       borderRadius: BorderRadius.circular(8)),
                   child: Row(
                     // mainAxisAlignment: MainAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Padding(
                         padding: const EdgeInsets.symmetric(

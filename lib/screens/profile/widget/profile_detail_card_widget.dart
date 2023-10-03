@@ -25,8 +25,8 @@ class ProfileDetailCard extends StatelessWidget {
       children: [
         Positioned(
           top: 30,
-          left: 7,
-          right: 7,
+          left: 2,
+          right: 2,
           child: Container(
               width: Get.width,
               height: 46,
@@ -38,7 +38,7 @@ class ProfileDetailCard extends StatelessWidget {
         ),
         Container(
           // height: 60,
-          margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+          margin: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
           decoration: BoxDecoration(
               color: Colors.white, borderRadius: BorderRadius.circular(8)),
           child: ListTile(

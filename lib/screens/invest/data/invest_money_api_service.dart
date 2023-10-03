@@ -39,7 +39,7 @@ class InvestMoneyApiService {
 class updatWalletImage {
   Future<void> updateImage(String path, String walletID) async {
     var request = http.MultipartRequest('POST',
-        Uri.parse('https://growfxtrade.com/trade_api/update_wallet_img.php'));
+        Uri.parse('https://omegafxtrade.com/trade_api/update_wallet_img.php'));
     request.fields.addAll({'wallet_transaction_id': walletID.toString()});
     request.files.add(await http.MultipartFile.fromPath('image', path));
 
@@ -61,7 +61,7 @@ class WIthdrawMoneyAPiService {
     var responseJson;
     try {
       final response = await http.post(
-        Uri.parse("https://growfxtrade.com/trade_api/withdraw.php"),
+        Uri.parse("https://omegafxtrade.com/trade_api/withdraw.php"),
         body: {
           'amount': amount,
           'type': type,

@@ -6,7 +6,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'api_exception.dart';
 
-const String baseUrl = "https://growfxtrade.com/trade_api/";
+  // const String baseUrl = "https://omegafxtrade.com/trade_api/";
+  const String baseUrl = "https://growfxtrade.com/trade_api/";
 
 class ApiBaseHelper {
   Future<dynamic> get(
